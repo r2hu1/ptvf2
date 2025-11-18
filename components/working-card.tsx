@@ -40,7 +40,7 @@ export function WorkingCard({ data }: { data: CardType }) {
 					<span className="text-[12px] text-foreground">{data.position}</span>
 				</div>
 
-				<p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
+				<p className="text-xs text-muted-foreground leading-relaxed">
 					{data.description}
 				</p>
 
