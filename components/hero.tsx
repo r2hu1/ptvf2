@@ -3,6 +3,7 @@
 import { siteConfig } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 export function Hero() {
 	return (
@@ -30,6 +31,11 @@ export function Hero() {
 						<ExternalLink className="inline-block size-4! ml-1" />
 					</a>{" "}
 					for more of my work, or reach me anytime at{" "}
+					<Tooltip>
+					<TooltipContent className="hidden sm:flex">
+					rrahulrajput2006@gmail.com
+					</TooltipContent>
+					<TooltipTrigger>
 					<a
 						className="underline text-foreground/80"
 						href={`mailto:${siteConfig.email}`}
@@ -37,6 +43,8 @@ export function Hero() {
 						my email.
 						<ExternalLink className="inline-block size-4! ml-1" />
 					</a>
+					</TooltipTrigger>
+					</Tooltip>
 					.
 				</p>
 			</div>

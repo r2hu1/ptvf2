@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${_geist.className} antialiased`}>{children}</body>
+			<body className={`${_geist.className} antialiased px-6 py-5`}>{children}</body>
 		</html>
 	);
 }
