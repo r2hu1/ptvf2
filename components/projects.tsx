@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { ProjectCard } from "./project-card";
 import { Skeleton } from "./ui/skeleton";
 import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 
 interface Repository {
 	id: number;
@@ -71,16 +72,14 @@ export function Projects() {
 				className="space-y-8"
 			>
 				<div className="flex items-center justify-between">
-					<a
-						href="https://github.com/r2hu1"
+					<p
 						className="text-sm text-foreground/90 grid gap-0.5 font-medium"
 					>
 						Projects
 						<span className="text-muted-foreground text-xs">
-							Click to view all{" "}
-							<ExternalLink className="size-3! ml-1 inline-flex" />
+							Some of my projects.
 						</span>
-					</a>
+					</p>
 					<div className="flex items-center gap-4">
 						<button
 							onClick={() => setActiveTab("popular")}
@@ -92,16 +91,12 @@ export function Projects() {
 						>
 							Popular
 						</button>
-						<button
-							onClick={() => setActiveTab("latest")}
-							className={`px-3 py-1.5 text-xs transition-colors ${
-								activeTab === "latest"
-									? "text-foreground border-b border-foreground"
-									: "text-muted-foreground hover:text-foreground"
-							}`}
+						<Link
+							  className={`px-3 py-1.5 text-xs transition-colors text-muted-foreground hover:text-foreground`}
+							  href="https://github.com/r2hu1"
 						>
-							Latest
-						</button>
+							View All
+						</Link>
 					</div>
 				</div>
 
@@ -121,7 +116,7 @@ export function Projects() {
 					>
 						{displayedProjects.length > 0 ? (
 							displayedProjects.map((repo) => (
-								<ProjectCard key={repo.id} repo={repo} />
+								<ProjectCard key={repo.id} repo={repo as any} />
 							))
 						) : (
 							<div className="col-span-2 text-center text-muted-foreground">

@@ -40,7 +40,7 @@ export default function WorkingExperience() {
 				<div className="text-sm text-foreground/90 grid gap-0.5 font-medium">
 					Experience
 					<span className="text-xs text-muted-foreground">
-						Professional Working Experience
+						Professional Working Experience.
 					</span>
 				</div>
 				{data.map((item, index) => (
