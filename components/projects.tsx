@@ -63,16 +63,6 @@ export function Projects() {
             </span>
           </p>
           <div className="flex items-center gap-4">
-            <button
-              onClick={() => setActiveTab("popular")}
-              className={`px-3 py-1.5 text-xs transition-colors ${
-                activeTab === "popular"
-                  ? "text-foreground border-b border-foreground"
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Popular
-            </button>
             <Link
               className={`px-3 py-1.5 text-xs transition-colors text-muted-foreground hover:text-foreground`}
               href="https://github.com/r2hu1"

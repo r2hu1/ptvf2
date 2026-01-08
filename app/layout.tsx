@@ -30,8 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${_geist.className} antialiased px-4 py-5`}>
-        {children}
+      <body className={`${_geist.className} antialiased`}>
+        <main className="px-4 py-5">{children}</main>
+        <div className="inset-0 -mt-16 h-full w-full items-center px-5 py-20 [background:radial-gradient(125%_125%_at_50%_10%,#000_30%,#63e_100%)]"></div>
       </body>
     </html>
   );
