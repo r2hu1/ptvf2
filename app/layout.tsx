@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rahul.eu.org"),
   title: siteConfig.name,
   description: siteConfig.description,
+  keywords: ['fullstack engineer', 'backend developer', 'microservices', 'API design', 'React', 'Next.js'],
+  authors: [{ name: 'Rahul Rajput', url: 'https://www.rahul.eu.org' }],
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
