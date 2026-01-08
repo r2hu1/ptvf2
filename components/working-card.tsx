@@ -42,7 +42,9 @@ export function WorkingCard({ data }: { data: CardType }) {
       <div className="space-y-2">
         <div className="flex items-center justify-between gap-3">
           <h3 className="text-sm text-foreground">{data.name}</h3>
-          <span className="text-[12px] text-foreground">{data.position}</span>
+          <span className="text-[12px] text-foreground bg-secondary p-0.5 rounded-full px-1.5">
+            {data.position}
+          </span>
         </div>
 
         <p className="text-xs text-muted-foreground leading-relaxed">
@@ -61,7 +63,9 @@ export function WorkingCard({ data }: { data: CardType }) {
           <div className="space-y-1">
             <div className="flex items-center justify-between">
               <p className="text-sm">Tayst AI</p>
-              <p className="text-xs leading-relaxed">{data.promotion.title}</p>
+              <p className="text-[12px] leading-relaxed bg-secondary p-0.5 rounded-full px-1.5">
+                {data.promotion.title}
+              </p>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
               {data.promotion.description}
