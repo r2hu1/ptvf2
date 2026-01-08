@@ -1,0 +1,70 @@
+# Rahul Rajput - Fullstack Engineer
+
+> Self-taught developer specializing in building scalable, reliable products with clean architecture
+
+## About
+
+I'm Rahul Rajput, a fullstack engineer focused on creating products that are stable, scalable, and user-friendly. My expertise spans full-stack development with particular strength in backend systems, API design, and microservices architecture.
+
+**Contact:** rrahulrajput2006@gmail.com  
+**Portfolio:** https://www.rahul.eu.org/  
+**GitHub:** https://github.com/r2hu1  
+**Resume:** https://www.rahul.eu.org/resume.pdf
+
+## Core Skills
+
+- **Backend:** Building scalable APIs and microservices infrastructure
+- **Frontend:** Creating smooth, functional user interfaces
+- **Full-Stack:** End-to-end product development from backend to frontend
+- **Architecture:** Designing systems that scale reliably
+- **Open Source:** Active contributor and maintainer of open-source projects
+
+## Professional Experience
+
+### Tayst AI (U.S.-based startup)
+**Tech Lead** (Nov 2025 - Present)
+- Leading development of backend, frontend, and microservices infrastructure
+- Ensuring scalability and reliability across the platform
+
+**Founding Engineer** (Sep 2025 - Nov 2025)
+- Built the company's scalable backend and microservices infrastructure
+- Contributed to frontend development for seamless user experience
+
+### Portals (London, UK)
+**Frontend Developer** (Mar 2025 - Jun 2025)
+- Developed web application including main landing page
+- Integrated backend APIs with frontend systems
+
+### Open-Source Community
+**Contributor** (2022 - Present)
+- Built numerous open-source projects: web apps, APIs, micro apps, backend systems, and AI projects
+- Active contributor to various open-source initiatives
+
+## Project Portfolio
+
+View all projects at: https://github.com/r2hu1
+
+My work includes web applications, backend systems, microservices, APIs, and AI-powered solutions.
+
+## Development Philosophy
+
+I focus on:
+- Writing code that doesn't break in production
+- Building systems that scale when needed
+- Creating clean interfaces without unnecessary complexity
+- Maintaining straightforward, well-documented APIs
+- Establishing stable backend foundations
+
+## What I Can Help With
+
+- Full-stack web application development
+- Backend architecture and API design
+- Microservices infrastructure
+- Frontend development and UI implementation
+- System scalability and reliability
+- Open-source project development and contribution
+- Technical consultation and code review
+
+---
+
+*Last updated: January 2026*
