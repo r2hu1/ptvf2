@@ -64,10 +64,10 @@ export function Projects() {
           </p>
           <div className="flex items-center gap-4">
             <Link
-              className={`px-3 py-1.5 text-xs transition-colors text-muted-foreground hover:text-foreground`}
+              className={`px-3 py-1.5 text-xs transition-colors flex gap-1.5 items-center text-muted-foreground hover:text-foreground`}
               href="https://github.com/r2hu1"
             >
-              View All
+              View All <ExternalLink className="size-3!" />
             </Link>
           </div>
         </div>

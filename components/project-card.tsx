@@ -42,7 +42,7 @@ export function ProjectCard({ repo }: { repo: Repository }) {
             <h3 className="text-foreground text-sm group-hover:text-foreground transition-colors">
               {repo.name}
             </h3>
-            <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0 mt-1" />
+            <ExternalLink className="size-3! text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0 mt-1" />
           </div>
 
           {repo.description && (

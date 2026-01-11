@@ -9,8 +9,16 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rahul.eu.org"),
   title: siteConfig.name,
   description: siteConfig.description,
-  keywords: ['fullstack engineer', 'backend developer', 'microservices', 'API design', 'React', 'Next.js'],
-  authors: [{ name: 'Rahul Rajput', url: 'https://www.rahul.eu.org' }],
+  keywords: [
+    "fullstack engineer",
+    "backend developer",
+    "microservices",
+    "API design",
+    "React",
+    "Next.js",
+  ],
+  authors: [{ name: "Rahul Rajput", url: "https://www.rahul.eu.org" }],
+  icons: "/profile.png",
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
@@ -34,7 +42,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${_geist.className} antialiased`}>
         <main className="px-4 py-5">{children}</main>
-        <div className="inset-0 -mt-16 h-full w-full items-center px-5 py-20 [background:radial-gradient(125%_125%_at_50%_10%,#000_30%,#63e_100%)]"></div>
+        <div className="inset-0 -mt-16 h-full w-full items-center px-5 py-20 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
       </body>
     </html>
   );
