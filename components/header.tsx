@@ -2,7 +2,13 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FaDiscord, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import {
+  FaDiscord,
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaTwitter,
+} from "react-icons/fa";
 import { Button } from "./ui/button";
 import { IconType } from "react-icons/lib";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -10,6 +16,11 @@ import { siteConfig } from "@/lib/constants";
 import { ButtonGroup } from "./ui/button-group";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
+  {
+    icon: FaTwitter,
+    url: siteConfig.twitter,
+    label: "Twitter",
+  },
   {
     icon: FaDiscord,
     url: siteConfig.discord,
