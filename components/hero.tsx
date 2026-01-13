@@ -4,6 +4,7 @@ import { siteConfig } from "@/lib/constants";
 import { motion } from "framer-motion";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import Link from "next/link";
 
 export function Hero() {
   return (
@@ -33,11 +34,13 @@ export function Hero() {
           , or reach out to me anytime.
         </p>
       </div>
-      <img
-        src="https://ghchart.rshah.org/r2hu1"
-        alt="GitHub contribution graph"
-        className="w-full rounded-md invert mt-12"
-      />
+      <Link target="_blank" href="https://github.com/r2hu1">
+        <img
+          src="https://ghchart.rshah.org/r2hu1"
+          alt="GitHub contribution graph"
+          className="w-full rounded-md invert mt-12"
+        />
+      </Link>
     </motion.div>
   );
 }
