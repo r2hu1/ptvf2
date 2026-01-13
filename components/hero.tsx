@@ -33,6 +33,11 @@ export function Hero() {
           , or reach out to me anytime.
         </p>
       </div>
+      <img
+        src="https://ghchart.rshah.org/r2hu1"
+        alt="GitHub contribution graph"
+        className="w-full rounded-md invert mt-12"
+      />
     </motion.div>
   );
 }
