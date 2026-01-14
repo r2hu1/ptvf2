@@ -44,7 +44,7 @@ export function Hero() {
             <TooltipTrigger>
               <Button className="border-0" size="sm" asChild>
                 <Link target="_blank" href={`mailto:${siteConfig.email}`}>
-                  Email Me <MailPlus />
+                  Lets Talk <MailPlus />
                 </Link>
               </Button>
             </TooltipTrigger>
