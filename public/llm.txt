@@ -6,10 +6,10 @@
 
 I'm Rahul Rajput, a fullstack engineer focused on creating products that are stable, scalable, and user-friendly. My expertise spans full-stack development with particular strength in backend systems, API design, and microservices architecture.
 
-**Contact:** rrahulrajput2006@gmail.com  
-**Portfolio:** https://www.rahul.eu.org/  
-**GitHub:** https://github.com/r2hu1  
-**Resume:** https://www.rahul.eu.org/resume.pdf
+**Contact:** rrahulrajput2006@gmail.com
+**Portfolio:** https://www.rahul.eu.org/
+**GitHub:** https://github.com/r2hu1
+**Resume:** https://www.rahul.eu.org/resume-jan-2026.pdf
 
 ## Core Skills
 
