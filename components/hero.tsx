@@ -2,9 +2,17 @@
 
 import { siteConfig } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ChevronDown, ExternalLink, MailPlus } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import Link from "next/link";
+import { Button } from "./ui/button";
+import { ButtonGroup, ButtonGroupSeparator } from "./ui/button-group";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 export function Hero() {
   return (
@@ -26,19 +34,39 @@ export function Hero() {
           interfaces that feel smooth rather than flashy.
         </p>
         <p className="text-muted-foreground">
-          You can explore my work in{" "}
-          <a href="/resume.pdf" className="text-foreground">
-            my resume
-            <ExternalLink className="inline-block size-3.5! ml-1" />
-          </a>{" "}
-          , or reach out to me anytime.
+          You can explore my works, or reach out to me anytime.
         </p>
+        <div className="mt-5 flex items-center gap-2">
+          <Button
+            size="sm"
+            variant="outline"
+            asChild
+            className="border-primary/15"
+          >
+            <Link href="/resume.pdf" target="_blank">
+              <ExternalLink className="size-3.5 text-muted-foreground" />
+              Resume
+            </Link>
+          </Button>
+          <Tooltip>
+            <TooltipTrigger>
+              <Button className="border-0" size="sm" asChild>
+                <Link target="_blank" href={`mailto:${siteConfig.email}`}>
+                  Email Me <MailPlus />
+                </Link>
+              </Button>
+            </TooltipTrigger>
+            <TooltipContent>
+              <span>{siteConfig.email}</span>
+            </TooltipContent>
+          </Tooltip>
+        </div>
       </div>
       <Link target="_blank" href="https://github.com/r2hu1">
         <img
           src="https://ghchart.rshah.org/r2hu1"
           alt="GitHub contribution graph"
-          className="w-full rounded-md invert mt-12"
+          className="w-full rounded-md invert mt-12 select-none"
         />
       </Link>
     </motion.div>
