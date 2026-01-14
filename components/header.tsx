@@ -70,13 +70,20 @@ export function Header() {
       </div>
       <div className="flex items-center gap-2">
         <ButtonGroup>
-          {socials.map((social) => (
-            <Button variant="outline" key={social.label} asChild size="icon-sm">
-              <Link href={social.url} target="_blank">
-                <social.icon />
-              </Link>
-            </Button>
-          ))}
+          {socials
+            .filter((social) => social.label !== "Email")
+            .map((social) => (
+              <Button
+                variant="outline"
+                key={social.label}
+                asChild
+                size="icon-sm"
+              >
+                <Link href={social.url} target="_blank">
+                  <social.icon />
+                </Link>
+              </Button>
+            ))}
         </ButtonGroup>
       </div>
     </motion.header>
