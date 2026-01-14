@@ -14,6 +14,7 @@ import { IconType } from "react-icons/lib";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { siteConfig } from "@/lib/constants";
 import { ButtonGroup } from "./ui/button-group";
+import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
   {
@@ -73,16 +74,18 @@ export function Header() {
           {socials
             .filter((social) => social.label !== "Email")
             .map((social) => (
-              <Button
-                variant="outline"
-                key={social.label}
-                asChild
-                size="icon-sm"
-              >
-                <Link href={social.url} target="_blank">
-                  <social.icon />
-                </Link>
-              </Button>
+              <Tooltip key={social.label}>
+                <TooltipTrigger asChild>
+                  <Button variant="outline" asChild size="icon-sm">
+                    <Link href={social.url} target="_blank">
+                      <social.icon />
+                    </Link>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{social.label}</p>
+                </TooltipContent>
+              </Tooltip>
             ))}
         </ButtonGroup>
       </div>
