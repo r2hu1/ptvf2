@@ -2,18 +2,10 @@
 
 import { siteConfig } from "@/lib/constants";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown, ExternalLink, MailPlus } from "lucide-react";
+import { ExternalLink, MailPlus } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { ButtonGroup, ButtonGroupSeparator } from "./ui/button-group";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "./ui/dropdown-menu";
-
 export function Hero() {
   return (
     <motion.div
