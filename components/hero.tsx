@@ -56,7 +56,7 @@ export function Hero() {
       </div>
       <Link target="_blank" href="https://github.com/r2hu1">
         <img
-          src="https://ghchart.rshah.org/r2hu1"
+          src="/api/github/stats"
           alt="GitHub contribution graph"
           className="w-full rounded-md invert mt-12 select-none"
         />
