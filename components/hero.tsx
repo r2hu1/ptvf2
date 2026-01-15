@@ -54,12 +54,21 @@ export function Hero() {
           </Tooltip>
         </div>
       </div>
-      <Link target="_blank" href="https://github.com/r2hu1">
-        <img
-          src="/api/github/stats"
-          alt="GitHub contribution graph"
-          className="w-full rounded-md invert mt-12 select-none"
-        />
+      <Link
+        href="https://github.com/r2hu1"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-12 block w-full overflow-x-auto"
+      >
+        <div className="min-w-[600px] sm:min-w-full">
+          <img
+            src="/api/github/stats"
+            alt="GitHub contribution graph"
+            width={1200}
+            height={300}
+            className="select-none rounded-md invert"
+          />
+        </div>
       </Link>
     </motion.div>
   );
