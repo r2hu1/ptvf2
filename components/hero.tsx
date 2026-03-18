@@ -35,7 +35,7 @@ export function Hero() {
             asChild
             className="border-primary/15"
           >
-            <Link href="/resume-jan-2026.pdf" target="_blank">
+            <Link href="/r/resume.pdf" target="_blank">
               <ExternalLink className="size-3.5 text-muted-foreground" />
               Resume
             </Link>
