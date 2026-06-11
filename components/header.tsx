@@ -3,20 +3,28 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
-  FaDiscord,
   FaGithub,
-  FaInstagram,
   FaLinkedin,
   FaTwitter,
+  FaDiscord,
+  FaInstagram,
 } from "react-icons/fa";
-import { Button } from "./ui/button";
 import { IconType } from "react-icons/lib";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { siteConfig } from "@/lib/constants";
-import { ButtonGroup } from "./ui/button-group";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
+  {
+    icon: FaGithub,
+    url: siteConfig.github,
+    label: "GitHub",
+  },
+  {
+    icon: FaLinkedin,
+    url: siteConfig.linkedin,
+    label: "LinkedIn",
+  },
   {
     icon: FaTwitter,
     url: siteConfig.twitter,
@@ -28,66 +36,69 @@ const socials: { icon: IconType; url: string; label: string }[] = [
     label: "Discord",
   },
   {
-    icon: FaGithub,
-    url: siteConfig.github,
-    label: "GitHub",
+    icon: FaInstagram,
+    url: siteConfig.instagram,
+    label: "Instagram",
   },
   {
     icon: MdOutlineMailOutline,
     url: `mailto:${siteConfig.email}`,
     label: "Email",
   },
-  {
-    icon: FaLinkedin,
-    url: siteConfig.linkedin,
-    label: "LinkedIn",
-  },
-  {
-    icon: FaInstagram,
-    url: siteConfig.instagram,
-    label: "Instagram",
-  },
 ];
 
 export function Header() {
   return (
     <motion.header
-      initial={{ opacity: 0, y: -20 }}
+      initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6 }}
-      className="flex items-center flex-wrap gap-6 justify-between max-w-2xl mx-auto px-4 pt-6 sm:py-16 pb-10 sm:px-6 lg:px-8"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="p-6 sm:p-8 bg-black"
     >
-      <div className="items-center gap-4 flex">
-        <div className="h-fit w-fit bg-secondary rounded-full p-1">
-          <img
-            className="size-10 rounded-full"
-            src="https://github.com/r2hu1.png"
-          />
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        {/* Name and Avatar */}
+        <div className="flex items-center gap-4">
+          <div className="relative">
+            <img
+              className="size-11 rounded-full border border-white/10 duration-300"
+              src="https://github.com/r2hu1.png"
+              alt="Rahul Rajput"
+            />
+            <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-black">
+              <span className="absolute inset-0 block h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+            </span>
+          </div>
+          <div className="grid">
+            <h1 className="text-sm font-semibold tracking-tight text-white">
+              {siteConfig.name}
+            </h1>
+            <p className="text-xs text-white/50 font-medium">
+              Software Engineer
+            </p>
+          </div>
         </div>
-        <div className="grid">
-          <h1>Rahul Rajput</h1>
-          <p className="text-sm text-muted-foreground">Fullstack Engineer</p>
+
+        {/* Social Icons (Minimal representation) */}
+        <div className="flex items-center gap-4">
+          {socials.map((social) => (
+            <Tooltip key={social.label}>
+              <TooltipTrigger asChild>
+                <Link
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white/40 hover:text-white transition-colors duration-200"
+                  aria-label={social.label}
+                >
+                  <social.icon className="size-4" />
+                </Link>
+              </TooltipTrigger>
+              <TooltipContent className="bg-white text-black font-semibold text-xs border border-white/10 rounded px-2 py-1 shadow-md">
+                <p>{social.label}</p>
+              </TooltipContent>
+            </Tooltip>
+          ))}
         </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <ButtonGroup>
-          {socials
-            .filter((social) => social.label !== "Email")
-            .map((social) => (
-              <Tooltip key={social.label}>
-                <TooltipTrigger asChild>
-                  <Button variant="outline" asChild size="icon-sm">
-                    <Link href={social.url} target="_blank">
-                      <social.icon />
-                    </Link>
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{social.label}</p>
-                </TooltipContent>
-              </Tooltip>
-            ))}
-        </ButtonGroup>
       </div>
     </motion.header>
   );
