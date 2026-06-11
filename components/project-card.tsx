@@ -1,67 +1,71 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 
-interface Repository {
-  id: number;
+export interface ProjectType {
+  id: string | number;
   name: string;
   description: string | null;
   url: string;
-  stargazers_count: number;
-  language: string | null;
-  updated_at: string;
+  stargazers_count?: number;
+  language?: string | null;
+  tags?: string[];
 }
 
-export function ProjectCard({ repo }: { repo: Repository }) {
-  const cardVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-    hover: {
-      y: -4,
-      transition: { duration: 0.3 },
-    },
-  };
-
+export function ProjectCard({ project }: { project: ProjectType }) {
   return (
     <motion.a
-      href={repo.url}
+      href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      variants={cardVariants}
-      whileHover="hover"
-      className="group block"
+      className="group block rounded-xl border bg-black hover:bg-white/[0.02] p-5 transition-all duration-300 relative overflow-hidden"
     >
-      <div>
-        <div className="space-y-1">
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="text-foreground text-sm group-hover:text-foreground transition-colors">
-              {repo.name}
-            </h3>
-            <ExternalLink className="size-3! text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity shrink-0 mt-1" />
+      <div className="space-y-3">
+        {/* Title and external link icon */}
+        <div className="flex items-start justify-between gap-3">
+          <h3 className="text-sm font-medium text-white/90 group-hover:text-white transition-colors duration-200">
+            {project.name}
+          </h3>
+          <ArrowUpRight className="size-3.5 text-white/30 group-hover:text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0 mt-0.5" />
+        </div>
+
+        {/* Description */}
+        {project.description && (
+          <p className="text-xs text-white/60 line-clamp-2 leading-relaxed font-normal">
+            {project.description}
+          </p>
+        )}
+
+        {/* Tech tags */}
+        {project.tags && project.tags.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="text-[9px] bg-white/[0.03] text-white/60 border border-white/5 px-1.5 py-0.5 rounded"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
+        )}
 
-          {repo.description && (
-            <p className="text-xs text-muted-foreground line-clamp-2 leading-relaxed">
-              {repo.description}
-            </p>
-          )}
-
-          <div className="flex items-center justify-between pt-3 border-t border-border/30">
-            <div className="flex items-center gap-3 text-xs text-muted-foreground">
-              {repo.language && <span>{repo.language}</span>}
-              {repo.stargazers_count > 0 && (
-                <>
-                  <span>·</span>
-                  <span>{repo.stargazers_count} stars</span>
-                </>
-              )}
+        {/* Language and stars (if present) */}
+        <div className="flex items-center gap-3.5 pt-2 text-[10px] text-white/40 border-t border-white/5">
+          {project.language && (
+            <div className="flex items-center gap-1.5">
+              <span className="size-1.5 rounded-full bg-white/40" />
+              <span>{project.language}</span>
             </div>
-          </div>
+          )}
+          {project.stargazers_count !== undefined &&
+            project.stargazers_count > 0 && (
+              <div className="flex items-center gap-1">
+                <Star className="size-3 text-white/40 group-hover:text-yellow-400 transition-colors" />
+                <span>{project.stargazers_count} stars</span>
+              </div>
+            )}
         </div>
       </div>
     </motion.a>

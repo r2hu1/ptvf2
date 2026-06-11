@@ -40,10 +40,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${_geist.className} antialiased`}>
-        <main className="px-4 py-5">{children}</main>
-        <div className="inset-0 -mt-16 h-full w-full items-center px-5 py-20 [background:radial-gradient(125%_125%_at_50%_10%,#000_40%,#63e_100%)]"></div>
+    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+      <body
+        className={`${_geist.className}
+        antialiase`}
+      >
+        {children}
         <Analytics />
       </body>
     </html>
