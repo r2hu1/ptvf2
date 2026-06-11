@@ -7,6 +7,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { HeatmapCalendar } from "./heatmap-calendar";
+import { Underline } from "./underline";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -40,17 +41,19 @@ export function Hero() {
       className="p-6 sm:p-8 -mt-4 bg-black"
     >
       <div className="space-y-6">
-        <p className="text-sm text-white/70 leading-relaxed font-normal">
+        <p className="text-[14.5px] text-white/70 leading-relaxed font-normal">
           I'm a software engineer who enjoys building things from scratch. I've
-          worked with startups, built products for clients, and spent years
-          creating my own projects. Most of my time is spent building products,
-          contributing to open source, and experimenting with new ideas. I've
-          built 50+ projects ranging from AI tools and SaaS products to
-          developer tools and automation software, and my open-source work has
-          earned hundreds of GitHub stars.
+          worked with <Underline>startups</Underline>, built products for{" "}
+          <Underline>clients</Underline>, and spent years creating my own
+          projects. Most of my time is spent building products, contributing to
+          open source, and experimenting with new ideas. I've built{" "}
+          <Underline>50+ projects</Underline> ranging from AI tools and SaaS
+          products to developer tools and automation software, and my
+          open-source work has earned{" "}
+          <Underline>hundreds of GitHub stars.</Underline>
         </p>
 
-        <p className="text-sm text-white/70 leading-relaxed font-normal">
+        <p className="text-[14.5px] text-white/70 leading-relaxed font-normal">
           When I'm not working, I'm usually shipping another side project or
           contributing to projects I use myself.
         </p>

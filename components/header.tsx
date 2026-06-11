@@ -64,7 +64,7 @@ export function Header() {
               src="https://github.com/r2hu1.png"
               alt="Rahul Rajput"
             />
-            <span className="absolute bottom-0 right-0 block h-2.5 w-2.5 rounded-full bg-emerald-500 ring-2 ring-black">
+            <span className="absolute bottom-0.5 right-0.5 block h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-black">
               <span className="absolute inset-0 block h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
             </span>
           </div>
