@@ -41,7 +41,7 @@ const featuredProjects: ProjectType[] = [
     name: "Cavio - AI-Integrated Writing App",
     description:
       "A Notion-inspired writing platform featuring AI autocomplete and an integrated writing assistant. Built with Next.js, tRPC, Drizzle ORM, PostgreSQL, and Gemini AI.",
-    url: "https://cavio.pro",
+    url: "https://cavio.vercel.app/home",
     tags: ["Next.js", "tRPC", "Drizzle ORM", "PostgreSQL", "Gemini AI"],
     language: "TypeScript",
   },
@@ -50,7 +50,7 @@ const featuredProjects: ProjectType[] = [
     name: "Ration - Encrypted Env Variable Manager",
     description:
       "A secure cloud platform for storing, syncing, and managing environment variables across projects and teams with AES-256 enterprise-grade encryption.",
-    url: "https://ration.cloud",
+    url: "https://rration.vercel.app",
     tags: ["Next.js", "React", "PostgreSQL", "Node.js", "AES-256"],
     language: "TypeScript",
   },
