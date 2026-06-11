@@ -41,20 +41,18 @@ export function Hero() {
     >
       <div className="space-y-6">
         <p className="text-sm text-white/70 leading-relaxed font-normal">
-          I'm a software engineer who enjoys building things from scratch. Most
-          of my time is spent building products, contributing to open source,
-          and experimenting with new ideas. I've built 50+ projects ranging from
-          AI tools and SaaS products to developer tools and automation software,
-          and my open-source work has received 550+ GitHub stars. When I'm not
-          working, I'm usually shipping another side project or contributing to
-          projects I use myself.
+          I'm a software engineer who enjoys building things from scratch. I've
+          worked with startups, built products for clients, and spent years
+          creating my own projects. Most of my time is spent building products,
+          contributing to open source, and experimenting with new ideas. I've
+          built 50+ projects ranging from AI tools and SaaS products to
+          developer tools and automation software, and my open-source work has
+          earned hundreds of GitHub stars.
         </p>
 
         <p className="text-sm text-white/70 leading-relaxed font-normal">
-          As an active open-source builder, I’ve created over 50 full-stack
-          projects and accumulated{" "}
-          <strong className="text-white font-medium">550+ stars</strong> across
-          GitHub repositories.
+          When I'm not working, I'm usually shipping another side project or
+          contributing to projects I use myself.
         </p>
 
         {/* Buttons */}
