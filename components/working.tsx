@@ -1,63 +1,167 @@
 "use client";
-import { motion } from "framer-motion";
-import { CardType, WorkingCard } from "./working-card";
 
-const data = [
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Calendar } from "lucide-react";
+
+interface RoleDetails {
+  title: string;
+  company: string;
+  location: string;
+  type: string;
+  period: string;
+  bullets: string[];
+}
+
+const experienceData: RoleDetails[] = [
   {
-    name: "Open-Source Developer",
-    position: "Github",
-    description: `I also love contributing to open source! I've built a bunch of open-source projects myself from
-      web apps, apis, micro apps to backend systems and even some Al stuff. Plus, I've contributed
-      to several other open-source projects along the way.`,
-    start_date: "2022",
+    company: "Tayst AI",
+    title: "Software Engineer (TL)",
+    location: "New York, NY",
+    type: "Remote",
+    period: "Dec 2025 – May 2026",
+    bullets: [
+      "Led architecture and delivery of the company’s entire backend, frontend, and microservices stack, ensuring system reliability and horizontal scalability across production environments.",
+      "Defined engineering standards, reviewed pull requests, and mentored junior contributors while driving adoption of type-safe API patterns to reduce runtime errors.",
+      "Coordinated directly with US-based stakeholders to translate product requirements into technical roadmaps and shipped features on aggressive timelines.",
+      "Owned deployment pipelines and infrastructure configuration on Vercel and serverless environments, maintaining high uptime for paying customers.",
+    ],
   },
   {
-    name: "Tayst AI",
-    position: "Founding Engineer",
-    description: `As a Founding Engineer at Tayst, a U.S.-based startup, I'm building the company's scalable
-    backend and microservices infrastructure, while also contributing to the frontend to deliver a
-    seamless user experience.`,
-    start_date: "17/09/2025",
-    end_date: "17/11/2025",
-    promotion: {
-      title: "Tech Lead",
-      description: `I'm responsible for leading the development of the company's backend, frontend and
-      microservices infrastructure, ensuring scalability and reliability.`,
-      start_date: "17/11/2025",
-      end_date: "15/03/2026",
-    },
+    company: "Tayst AI",
+    title: "Founding Engineer",
+    location: "New York, NY",
+    type: "Remote",
+    period: "Sept 2025 – Nov 2025",
+    bullets: [
+      "Joined as a founding engineer and built the company’s scalable backend and microservices infrastructure from the ground up.",
+      "Contributed to the frontend in Next.js and React, delivering core product UI flows and integrating backend APIs to create a seamless end-to-end user experience.",
+      "Established database schema, authentication flows, and API contracts early in the product lifecycle, enabling rapid iteration.",
+    ],
   },
   {
-    name: "Portals",
-    position: "Frontend Developer",
-    description: `Built and maintained all dynamic pages for the startup's web platform using Next.js, React,
-    TypeScript, and Tailwind CSS. Focused on creating responsive, high-performance Uls and
-    integrating APIs to deliver a smooth user experience. Collaborated directly with the founding
-    team on product features and frontend architecture.`,
-    start_date: "04/03/25",
-    end_date: "03/06/25",
+    company: "Portals",
+    title: "Frontend Developer",
+    location: "London, UK",
+    type: "Remote",
+    period: "Mar 2025 – June 2025",
+    bullets: [
+      "Built and maintained all dynamic pages for the startup’s web platform using Next.js, React, TypeScript, and Tailwind CSS, delivering a responsive and performant UI.",
+      "Integrated third-party and internal REST APIs, handling edge cases and loading states to ensure a smooth user experience across devices.",
+      "Collaborated directly with the founding team on product features and frontend architecture decisions, iterating quickly based on user feedback.",
+    ],
+  },
+  {
+    company: "GitHub & Open Source",
+    title: "Open-Source Builder",
+    location: "Global",
+    type: "Remote",
+    period: "2022 – Present",
+    bullets: [
+      "Developed more than 50 full-stack projects.",
+      "Accumulated more than 550+ stars across public repositories.",
+      "Contributed to various community repositories and built developer-friendly command-line tools.",
+    ],
   },
 ];
 
 export default function WorkingExperience() {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0); // Default expand the first one
+
+  const toggleExpand = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   return (
-    <section className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 pt-0 py-20">
+    <section id="experience" className="p-6 sm:p-8 bg-black">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="space-y-8"
+        className="space-y-6"
       >
-        <div className="text-sm text-foreground/90 grid gap-0.5 font-medium">
-          Experience
-          <span className="text-xs text-muted-foreground">
-            Professional Working Experience.
-          </span>
+        <div>
+          <h2 className="text-sm text-white tracking-wider">Experience</h2>
+          <p className="text-xs text-white/40 mt-1">
+            Professional timeline and work achievements
+          </p>
         </div>
-        {data.map((item, index) => (
-          <WorkingCard key={item.name} data={item as CardType} />
-        ))}
+
+        <div className="relative border-l border-border pt-1 pl-5.5 ml-3 space-y-8">
+          {experienceData.map((role, idx) => {
+            const isExpanded = expandedIndex === idx;
+            return (
+              <div key={idx} className="relative group">
+                {/* Timeline node */}
+                <div
+                  className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-white/10 bg-black transition-all duration-300 flex items-center justify-center ${
+                    isExpanded
+                      ? "border-white scale-110"
+                      : "group-hover:border-white/50"
+                  }`}
+                >
+                  <div
+                    className={`size-1.5 rounded-full bg-white transition-all duration-300 ${
+                      isExpanded
+                        ? "opacity-100 scale-100"
+                        : "opacity-30 scale-75"
+                    }`}
+                  />
+                </div>
+
+                <div
+                  onClick={() => toggleExpand(idx)}
+                  className="cursor-pointer space-y-1.5 p-4 -m-4 rounded-lg hover:bg-white/[0.01] transition-all duration-200"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h3 className="text-sm font-medium text-white transition-colors group-hover:text-white">
+                        {role.title}
+                      </h3>
+                      <p className="text-xs text-white/50 font-normal mt-0.5">
+                        {role.company}
+                      </p>
+                    </div>
+
+                    <div className="flex flex-col items-end gap-1 shrink-0 text-right">
+                      <span className="text-[10px] text-white/40 flex items-center gap-1">
+                        <Calendar className="size-3" /> {role.period}
+                      </span>
+                      <span className="text-[9px] bg-white/[0.03] text-white/50 px-1.5 py-0.5 rounded border border-white/5">
+                        {role.type}
+                      </span>
+                    </div>
+                  </div>
+
+                  <AnimatePresence initial={false}>
+                    {isExpanded && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden pt-2"
+                      >
+                        <ul className="space-y-2.5 border-t border-white/5 pt-3 mt-1">
+                          {role.bullets.map((bullet, bIdx) => (
+                            <li
+                              key={bIdx}
+                              className="text-xs text-white/60 leading-relaxed list-none pl-3 relative"
+                            >
+                              <span className="absolute left-0 top-2 size-1 rounded-full bg-white/30" />
+                              {bullet}
+                            </li>
+                          ))}
+                        </ul>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            );
+          })}
+        </div>
       </motion.div>
     </section>
   );
