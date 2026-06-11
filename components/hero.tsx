@@ -41,10 +41,13 @@ export function Hero() {
     >
       <div className="space-y-6">
         <p className="text-sm text-white/70 leading-relaxed font-normal">
-          I am a Full-Stack Software Engineer focused on building robust SaaS
-          products and microservices. I specialize in designing scalable backend
-          architectures, crafting seamless frontend experiences, and automating
-          deployments.
+          I'm a software engineer who enjoys building things from scratch. Most
+          of my time is spent building products, contributing to open source,
+          and experimenting with new ideas. I've built 50+ projects ranging from
+          AI tools and SaaS products to developer tools and automation software,
+          and my open-source work has received 550+ GitHub stars. When I'm not
+          working, I'm usually shipping another side project or contributing to
+          projects I use myself.
         </p>
 
         <p className="text-sm text-white/70 leading-relaxed font-normal">
