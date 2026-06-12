@@ -4,7 +4,7 @@
 
 ## About
 
-I'm Rahul Rajput, a fullstack engineer focused on creating products that are stable, scalable, and user-friendly. My expertise spans full-stack development with particular strength in backend systems, API design, and microservices architecture.
+ I'm a software engineer who enjoys building things from scratch. I've worked with startups, built products for clients, and spent years creating my own projects. Most of my time is spent building products, contributing to open source, and experimenting with new ideas. I've built 50+ projects ranging from AI tools and SaaS products to developer tools and automation software, and my open-source work has earned hundreds of GitHub stars.
 
 **Contact:** rrahulrajput2006@gmail.com
 **Portfolio:** https://www.rahul.eu.org/
@@ -22,7 +22,7 @@ I'm Rahul Rajput, a fullstack engineer focused on creating products that are sta
 ## Professional Experience
 
 ### Tayst AI (U.S.-based startup)
-**Tech Lead** (Nov 2025 - Present)
+**Software Engineer (Tech Lead)** (Nov 2025 - May 2026)
 - Leading development of backend, frontend, and microservices infrastructure
 - Ensuring scalability and reliability across the platform
 
@@ -67,4 +67,4 @@ I focus on:
 
 ---
 
-*Last updated: January 2026*
+*Last updated: May 2026*
