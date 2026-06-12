@@ -8,6 +8,7 @@ import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { HeatmapCalendar } from "./heatmap-calendar";
 import { Underline } from "./underline";
+import { toast } from "sonner";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -16,6 +17,7 @@ export function Hero() {
     navigator.clipboard.writeText(siteConfig.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
+    toast.success("Email copied to clipboard!");
   };
 
   const [data, setData] = useState([
@@ -62,7 +64,7 @@ export function Hero() {
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <Button size="sm" variant="default" asChild>
             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-              View Resume <ArrowUpRight className="size-3.5 ml-1" />
+              View Resume <ArrowUpRight className="size-3.5" />
             </Link>
           </Button>
 
@@ -74,7 +76,7 @@ export function Hero() {
           >
             {copied ? (
               <>
-                Copied <Check className="size-3.5 ml-1.5" />
+                Copied <Check className="size-3.5" />
               </>
             ) : (
               <>
@@ -85,14 +87,14 @@ export function Hero() {
         </div>
 
         {/* GitHub Contribution Graph */}
-        <div className="pt-4">
+        <div className="pt-6">
           <Link
             href="https://github.com/r2hu1"
             target="_blank"
             rel="noopener noreferrer"
             className="overflow-scroll"
           >
-            <HeatmapCalendar legend={false} data={data} axisLabels />
+            <HeatmapCalendar legend={false} data={data} />
           </Link>
         </div>
       </div>
