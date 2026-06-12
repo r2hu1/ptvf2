@@ -4,6 +4,7 @@ import "./globals.css";
 import { siteConfig } from "@/lib/constants";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
+import { PreloaderProvider } from "@/components/preloader-context";
 
 const _geist = Geist({ subsets: ["latin"] });
 
@@ -46,8 +47,10 @@ export default function RootLayout({
         className={`${_geist.className}
         antialiase`}
       >
-        {children}
-        <Toaster position="top-center" />
+        <PreloaderProvider>
+          {children}
+          <Toaster position="top-center" />
+        </PreloaderProvider>
         <Analytics />
       </body>
     </html>
