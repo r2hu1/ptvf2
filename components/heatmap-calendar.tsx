@@ -434,7 +434,7 @@ export function HeatmapCalendar({
                 {Array.from({ length: 7 }).map((_, rowIdx) => (
                   <div
                     key={rowIdx}
-                    className="flex items-center justify-end text-xs text-muted-foreground"
+                    className="flex items-center justify-end text-[10px] text-muted-foreground"
                     style={{ width: 40, height: cellSize }}
                   >
                     {weekdayIndices.includes(rowIdx)
