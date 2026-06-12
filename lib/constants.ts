@@ -1,7 +1,10 @@
 export const siteConfig = {
   name: "Rahul Rajput",
-  description:
-    "Hi, I’m Rahul Rajput — a self-taught developer who genuinely enjoys building things. I focus on creating products that are reliable, scale when they need to, and look clean without trying too hard. Full-stack development is where I’m most comfortable: clear APIs, solid backend foundations, and interfaces that feel smooth rather than flashy.You can explore my work, or reach out anytime.",
+  description: `
+    I'm a software engineer who enjoys building things from scratch. I've
+    worked with startups, built products for clients, and spent years creating my own
+    projects.
+    `,
   url: "https://rahul.eu.org",
   ogImage: "/opengraph-image.png",
   github: "https://github.com/r2hu1",
