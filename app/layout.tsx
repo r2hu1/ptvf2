@@ -3,6 +3,7 @@ import { Geist } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/constants";
 import { Analytics } from "@vercel/analytics/next";
+import { Toaster } from "@/components/ui/sonner";
 
 const _geist = Geist({ subsets: ["latin"] });
 
@@ -46,6 +47,7 @@ export default function RootLayout({
         antialiase`}
       >
         {children}
+        <Toaster position="top-center" />
         <Analytics />
       </body>
     </html>
