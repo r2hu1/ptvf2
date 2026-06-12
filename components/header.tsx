@@ -1,5 +1,4 @@
 "use client";
-
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -10,60 +9,51 @@ import {
   FaInstagram,
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
-import { MdOutlineMailOutline } from "react-icons/md";
 import { siteConfig } from "@/lib/constants";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
+import { usePreloader } from "./preloader-context";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
-  {
-    icon: FaGithub,
-    url: siteConfig.github,
-    label: "GitHub",
-  },
-  {
-    icon: FaLinkedin,
-    url: siteConfig.linkedin,
-    label: "LinkedIn",
-  },
-  {
-    icon: FaTwitter,
-    url: siteConfig.twitter,
-    label: "Twitter",
-  },
-  {
-    icon: FaDiscord,
-    url: siteConfig.discord,
-    label: "Discord",
-  },
-  {
-    icon: FaInstagram,
-    url: siteConfig.instagram,
-    label: "Instagram",
-  },
+  { icon: FaGithub, url: siteConfig.github, label: "GitHub" },
+  { icon: FaLinkedin, url: siteConfig.linkedin, label: "LinkedIn" },
+  { icon: FaTwitter, url: siteConfig.twitter, label: "Twitter" },
+  { icon: FaDiscord, url: siteConfig.discord, label: "Discord" },
+  { icon: FaInstagram, url: siteConfig.instagram, label: "Instagram" },
 ];
 
 export function Header() {
+  const { done } = usePreloader();
+
   return (
     <motion.header
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      initial={{ opacity: 0 }}
+      animate={done ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
       className="p-6 sm:p-8 bg-black"
     >
       <div className="flex gap-4 flex-wrap items-center justify-between">
-        {/* Name and Avatar */}
         <div className="flex items-center gap-4">
           <div className="relative">
-            <img
-              className="size-11 rounded-full border border-white/10 duration-300"
-              src="https://github.com/r2hu1.png"
-              alt="Rahul Rajput"
-            />
+            {/* Placeholder to hold space before avatar arrives */}
+            <div className="size-11" />
+
+            {/* Avatar only mounts after preloader is done so layoutId can animate in */}
+            {done && (
+              <motion.img
+                layoutId="avatar"
+                src="https://github.com/r2hu1.png"
+                alt="Rahul Rajput"
+                className="absolute inset-0 size-11 rounded-full! border border-white/10"
+                transition={{ type: "spring", stiffness: 180, damping: 22 }}
+              />
+            )}
+
             <span className="absolute bottom-0.5 right-0.5 block h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-black">
-              <span className="absolute inset-0 block h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="absolute inset-0 block h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             </span>
           </div>
+
           <div className="grid">
             <h1 className="text-sm font-semibold tracking-tight text-white">
               {siteConfig.name}
@@ -74,7 +64,6 @@ export function Header() {
           </div>
         </div>
 
-        {/* Social Icons (Minimal representation) */}
         <div className="flex items-center">
           {socials.map((social) => (
             <Tooltip key={social.label}>
