@@ -13,6 +13,7 @@ import { IconType } from "react-icons/lib";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { siteConfig } from "@/lib/constants";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
+import { Button } from "./ui/button";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
   {
@@ -40,11 +41,6 @@ const socials: { icon: IconType; url: string; label: string }[] = [
     url: siteConfig.instagram,
     label: "Instagram",
   },
-  {
-    icon: MdOutlineMailOutline,
-    url: `mailto:${siteConfig.email}`,
-    label: "Email",
-  },
 ];
 
 export function Header() {
@@ -55,7 +51,7 @@ export function Header() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       className="p-6 sm:p-8 bg-black"
     >
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex gap-4 flex-wrap items-center justify-between">
         {/* Name and Avatar */}
         <div className="flex items-center gap-4">
           <div className="relative">
@@ -79,21 +75,22 @@ export function Header() {
         </div>
 
         {/* Social Icons (Minimal representation) */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center">
           {socials.map((social) => (
             <Tooltip key={social.label}>
               <TooltipTrigger asChild>
-                <Link
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-white/40 hover:text-white transition-colors duration-200"
-                  aria-label={social.label}
-                >
-                  <social.icon className="size-4" />
-                </Link>
+                <Button asChild size="icon-sm" variant="ghost">
+                  <Link
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                  >
+                    <social.icon className="size-3.5" />
+                  </Link>
+                </Button>
               </TooltipTrigger>
-              <TooltipContent className="bg-white text-black font-semibold text-xs border border-white/10 rounded px-2 py-1 shadow-md">
+              <TooltipContent>
                 <p>{social.label}</p>
               </TooltipContent>
             </Tooltip>
