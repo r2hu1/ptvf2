@@ -93,7 +93,7 @@ export function Projects() {
 
       fetchProjects();
     }
-  }, [activeTab, githubRepos]);
+  }, [activeTab]);
 
   const displayedProjects =
     activeTab === "featured" ? featuredProjects : githubRepos;

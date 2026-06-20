@@ -20,11 +20,7 @@ export function Hero() {
     toast.success("Email copied to clipboard!");
   };
 
-  const [data, setData] = useState([
-    { date: "2025-01-01", value: 3 },
-    { date: "2025-01-02", value: 0 },
-    { date: "2025-01-03", value: 8 },
-  ]);
+  const [data, setData] = useState<{ date: string; value: number }[]>([]);
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch("/api/github/cont");
@@ -92,7 +88,7 @@ export function Hero() {
             href="https://github.com/r2hu1"
             target="_blank"
             rel="noopener noreferrer"
-            className="overflow-scroll"
+            className="overflow-x-auto"
           >
             <HeatmapCalendar legend={false} data={data} />
           </Link>

@@ -92,7 +92,7 @@ export default function WorkingExperience() {
           {experienceData.map((role, idx) => {
             const isExpanded = expandedIndex === idx;
             return (
-              <div key={idx} className="relative group">
+              <div key={`${role.company}-${role.period}`} className="relative group">
                 {/* Timeline node */}
                 <div
                   className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-white/10 bg-black transition-all duration-300 flex items-center justify-center ${
@@ -146,7 +146,7 @@ export default function WorkingExperience() {
                         <ul className="space-y-2.5 border-t border-white/5 pt-3 mt-1">
                           {role.bullets.map((bullet, bIdx) => (
                             <li
-                              key={bIdx}
+                              key={`${role.company}-${role.period}-${bIdx}`}
                               className="text-xs text-white/60 leading-relaxed list-none pl-3 relative"
                             >
                               <span className="absolute left-0 top-2 size-1 rounded-full bg-white/30" />

@@ -51,7 +51,7 @@ export default function RootLayout({
     <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
       <body
         className={`${_geist.className}
-        antialiase`}
+        antialiased`}
       >
         <PreloaderProvider>
           {children}
