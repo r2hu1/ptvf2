@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <LayoutGroup>
       <Preloader />
-      <main className="min-h-screen bg-black py-8 sm:py-16 px-4 sm:px-6 lg:px-8">
+      <main className="min-h-screen bg-black py-0 sm:py-16 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto">
           <Header />
           <Hero />
