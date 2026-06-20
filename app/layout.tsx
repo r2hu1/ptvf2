@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/constants";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
 import { PreloaderProvider } from "@/components/preloader-context";
+import Head from "next/head";
 
 const _geist = Geist({ subsets: ["latin"] });
 
@@ -49,6 +50,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+      <Head>
+        <script
+          defer
+          src="https://cloud.umami.is/script.js"
+          data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+        ></script>
+      </Head>
       <body
         className={`${_geist.className}
         antialiased`}
