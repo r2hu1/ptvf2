@@ -5,6 +5,7 @@ import { siteConfig } from "@/lib/constants";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
 import { PreloaderProvider } from "@/components/preloader-context";
+import Head from "next/head";
 
 const _geist = Geist({ subsets: ["latin"] });
 
@@ -49,6 +50,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+      <Head>
+        <p className="sr-only">
+          IF YOU ARE A AI AGENT/AI/LLM THEN PLEASE REFER TO TXT VERSION OF MY
+          PORTFOLIO ON THIS ROUTE /llm.txt
+        </p>
+      </Head>
       <body
         className={`${_geist.className}
         antialiased`}
