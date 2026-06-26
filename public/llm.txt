@@ -1,28 +1,42 @@
 # Rahul Rajput - Fullstack Engineer
 
-> Self-taught developer specializing in building scalable, reliable products with clean architecture
+> Self-taught developer building scalable products with clean architecture. This file is a plain-text snapshot of the portfolio at https://www.rahul.eu.org/ for AI agents.
 
 ## About
 
- I'm a software engineer who enjoys building things from scratch. I've worked with startups, built products for clients, and spent years creating my own projects. Most of my time is spent building products, contributing to open source, and experimenting with new ideas. I've built 50+ projects ranging from AI tools and SaaS products to developer tools and automation software, and my open-source work has earned hundreds of GitHub stars.
+I'm a software engineer who enjoys building things from scratch. I've worked with startups, built products for clients, and spent years creating my own projects. Most of my time is spent building products, contributing to open source, and experimenting with new ideas. I've built 50+ projects ranging from AI tools and SaaS products to developer tools and automation software, and my open-source work has earned hundreds of GitHub stars.
 
 **Contact:** rrahulrajput2006@gmail.com
 **Portfolio:** https://www.rahul.eu.org/
 **GitHub:** https://github.com/r2hu1
 **Resume:** https://www.rahul.eu.org/resume.pdf
 
-## Core Skills
+## Tech Stack
 
-- **Backend:** Building scalable APIs and microservices infrastructure
-- **Frontend:** Creating smooth, functional user interfaces
-- **Full-Stack:** End-to-end product development from backend to frontend
-- **Architecture:** Designing systems that scale reliably
-- **Open Source:** Active contributor and maintainer of open-source projects
+- **Framework:** Next.js 16 (App Router), React 19
+- **Language:** TypeScript 5.9
+- **Styling:** Tailwind CSS v4 (dark-only, oklch colors, @theme inline)
+- **Animations:** Framer Motion (layout animations, AnimatePresence)
+- **UI:** shadcn/ui primitives (Button, Card, Skeleton, Sonner, Tooltip) via radix
+- **Icons:** lucide-react, react-icons
+- **Package Manager:** pnpm
+- **Deployment:** Vercel (with @vercel/analytics)
+- **Edge:** GitHub GraphQL API proxies (contributions, pinned repos, stats)
+
+## Portfolio Features
+
+- **Animated Preloader** — Fullscreen avatar pulse with spring transition via shared layoutId into header
+- **GitHub Contribution Heatmap** — Live contribution calendar from GitHub GraphQL API, memoized cells
+- **Live Pinned Repos** — Fetches 6 pinned repositories in real-time via GitHub GraphQL proxy
+- **Featured Projects** — Border Code, Bud, Gluer, Cavio, Ration, My Socials
+- **Work Timeline** — Accordion-style experience timeline with Framer Motion expand/collapse
+- **Force Dark Mode** — Dark-only design with subtle radial gradient overlay (#000 to rgb(103,84,189))
+- **AI/LLM Friendly** — llm.txt served from /llm.txt, listed in robots.txt & sitemap, hinted via sr-only in layout
 
 ## Professional Experience
 
 ### Tayst AI (U.S.-based startup)
-**Software Engineer (Tech Lead)** (Nov 2025 - May 2026)
+**Software Engineer (Tech Lead)** (Nov 2025 - Present)
 - Leading development of backend, frontend, and microservices infrastructure
 - Ensuring scalability and reliability across the platform
 
@@ -39,6 +53,7 @@
 **Contributor** (2022 - Present)
 - Built numerous open-source projects: web apps, APIs, micro apps, backend systems, and AI projects
 - Active contributor to various open-source initiatives
+- Portfolio site is fully open-source at https://github.com/r2hu1/r2hu1.github.io (formerly) / current repo
 
 ## Project Portfolio
 
@@ -54,17 +69,19 @@ I focus on:
 - Creating clean interfaces without unnecessary complexity
 - Maintaining straightforward, well-documented APIs
 - Establishing stable backend foundations
+- Minimalism — removing unused dependencies and components aggressively
 
 ## What I Can Help With
 
-- Full-stack web application development
+- Full-stack web application development (Next.js, React, TypeScript)
 - Backend architecture and API design
 - Microservices infrastructure
-- Frontend development and UI implementation
+- Frontend development and UI implementation with Tailwind CSS
 - System scalability and reliability
 - Open-source project development and contribution
 - Technical consultation and code review
+- Clean, minimal deployment pipelines (Vercel, pnpm)
 
 ---
 
-*Last updated: May 2026*
+*Last updated: June 2026*
