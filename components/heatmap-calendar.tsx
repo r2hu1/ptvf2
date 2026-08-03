@@ -389,12 +389,7 @@ export function HeatmapCalendar({
 
   return (
     <TooltipProvider delayDuration={80}>
-      <div
-        className={cn(
-          "flex gap-4 overflow-x-auto",
-          placement === "bottom" && "flex-col",
-        )}
-      >
+      <div className={cn("flex gap-4", placement === "bottom" && "flex-col")}>
         {/* Labeled calendar area */}
         <div className={cn("min-w-0", axisCfg.className)}>
           {/* Month labels row */}

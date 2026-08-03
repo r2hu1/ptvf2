@@ -7,6 +7,7 @@ import { Skeleton } from "./ui/skeleton";
 import { ArrowUpRight, Pin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
+import { siteConfig } from "@/lib/constants";
 
 const featuredProjects: ProjectType[] = [
   {
@@ -69,7 +70,7 @@ type Tab = "featured" | "github";
 
 export function Projects() {
   const [githubRepos, setGithubRepos] = useState<ProjectType[]>([]);
-  const [activeTab, setActiveTab] = useState<Tab>("featured");
+  const [activeTab, setActiveTab] = useState<Tab>("github");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
@@ -117,14 +118,14 @@ export function Projects() {
 
           {/* Minimal tab switcher */}
           <div className="flex items-center gap-2 border border-white/5 bg-white/[0.01] p-1 rounded-md w-fit">
-            <Button
+            {/*<Button
               size="sm"
               className="h-6 text-sm px-2 font-normal cursor-pointer border"
               onClick={() => setActiveTab("featured")}
               variant={activeTab === "featured" ? "default" : "outline"}
             >
               Featured
-            </Button>
+            </Button>*/}
             <Button
               size="sm"
               variant={activeTab === "github" ? "default" : "outline"}
@@ -133,6 +134,16 @@ export function Projects() {
             >
               Pinned
               <Pin className="size-3" />
+            </Button>
+            <Button
+              size="sm"
+              className="h-6 text-sm px-2 font-normal cursor-pointer border"
+              asChild
+              variant="secondary"
+            >
+              <Link href={siteConfig.github} target="_blank">
+                View All
+              </Link>
             </Button>
           </div>
         </div>

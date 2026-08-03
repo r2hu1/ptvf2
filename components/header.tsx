@@ -13,6 +13,13 @@ import { siteConfig } from "@/lib/constants";
 import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
 import { usePreloader } from "./preloader-context";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { FaEnvelope } from "react-icons/fa";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
   { icon: FaGithub, url: siteConfig.github, label: "GitHub" },
@@ -20,6 +27,7 @@ const socials: { icon: IconType; url: string; label: string }[] = [
   { icon: FaTwitter, url: siteConfig.twitter, label: "Twitter" },
   { icon: FaDiscord, url: siteConfig.discord, label: "Discord" },
   { icon: FaInstagram, url: siteConfig.instagram, label: "Instagram" },
+  { icon: FaEnvelope, url: `mailto:${siteConfig.email}`, label: "Email" },
 ];
 
 export function Header() {
@@ -64,27 +72,32 @@ export function Header() {
           </div>
         </div>
 
-        <div className="flex items-center">
-          {socials.map((social) => (
-            <Tooltip key={social.label}>
-              <TooltipTrigger asChild>
-                <Button asChild size="icon-sm" variant="ghost">
-                  <Link
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                  >
-                    <social.icon className="size-3.5" />
-                  </Link>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <div className="flex items-center">
+              {socials.slice(0, 3).map((social) => (
+                <Button
+                  size="icon-sm"
+                  variant="secondary"
+                  className="rounded-full cursor-pointer -ml-2"
+                  key={social.label}
+                >
+                  <social.icon />
                 </Button>
-              </TooltipTrigger>
-              <TooltipContent>
-                <p>{social.label}</p>
-              </TooltipContent>
-            </Tooltip>
-          ))}
-        </div>
+              ))}
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end" className="min-w-50">
+            {socials.map((e) => (
+              <Link href={e.url} target="_blank" key={e.label}>
+                <DropdownMenuItem className="cursor-pointer">
+                  <e.icon />
+                  {e.label}
+                </DropdownMenuItem>
+              </Link>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
     </motion.header>
   );

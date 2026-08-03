@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { HeatmapCalendar } from "./heatmap-calendar";
 import { Underline } from "./underline";
 import { toast } from "sonner";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 export function Hero() {
   const [copied, setCopied] = useState(false);
@@ -83,16 +84,16 @@ export function Hero() {
         </div>
 
         {/* GitHub Contribution Graph */}
-        <div className="pt-6">
+        <ScrollArea className="py-6 -mb-6">
           <Link
             href="https://github.com/r2hu1"
             target="_blank"
             rel="noopener noreferrer"
-            className="overflow-x-auto"
           >
             <HeatmapCalendar legend={false} data={data} />
           </Link>
-        </div>
+          <ScrollBar orientation="horizontal" />
+        </ScrollArea>
       </div>
     </motion.section>
   );
