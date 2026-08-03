@@ -15,6 +15,19 @@ interface RoleDetails {
 
 const experienceData: RoleDetails[] = [
   {
+    company: "RosterPro",
+    title: "Founding Engineer & Co-Founder",
+    location: "India, Mumbai",
+    type: "On-site",
+    period: "May 2026 – Present",
+    bullets: [
+      "Architected and built a type-safe, full-stack monorepo powering multiple web applications, backend services, APIs, and shared packages.",
+      "Engineered scalable backend infrastructure with authentication, payments, real-time event streaming, caching, media management, and secure QR-based ordering workflows.",
+      "Established end-to-end type safety by building shared API contracts, reusable UI components, and schema-first development workflows across the entire stack.",
+      "Drove technical architecture, infrastructure, and product development with a strong focus on scalability, performance, reliability, and developer experience.",
+    ],
+  },
+  {
     company: "Tayst AI",
     title: "Software Engineer (TL)",
     location: "New York, NY",
@@ -51,18 +64,18 @@ const experienceData: RoleDetails[] = [
       "Collaborated directly with the founding team on product features and frontend architecture decisions, iterating quickly based on user feedback.",
     ],
   },
-  {
-    company: "GitHub & Open Source",
-    title: "Open-Source Builder",
-    location: "Global",
-    type: "Remote",
-    period: "2022 – Present",
-    bullets: [
-      "Developed more than 50 full-stack projects.",
-      "Accumulated more than 550+ stars across public repositories.",
-      "Contributed to various community repositories and built developer-friendly command-line tools.",
-    ],
-  },
+  // {
+  //   company: "GitHub & Open Source",
+  //   title: "Open-Source Builder",
+  //   location: "Global",
+  //   type: "Remote",
+  //   period: "2022 – Present",
+  //   bullets: [
+  //     "Developed more than 50 full-stack projects.",
+  //     "Accumulated more than 550+ stars across public repositories.",
+  //     "Contributed to various community repositories and built developer-friendly command-line tools.",
+  //   ],
+  // },
 ];
 
 export default function WorkingExperience() {
@@ -92,7 +105,10 @@ export default function WorkingExperience() {
           {experienceData.map((role, idx) => {
             const isExpanded = expandedIndex === idx;
             return (
-              <div key={`${role.company}-${role.period}`} className="relative group">
+              <div
+                key={`${role.company}-${role.period}`}
+                className="relative group"
+              >
                 {/* Timeline node */}
                 <div
                   className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-white/10 bg-black transition-all duration-300 flex items-center justify-center ${
@@ -117,10 +133,10 @@ export default function WorkingExperience() {
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <h3 className="text-sm font-medium text-white transition-colors group-hover:text-white">
-                        {role.title}
+                        {role.company}
                       </h3>
                       <p className="text-xs text-white/50 font-normal mt-0.5">
-                        {role.company}
+                        {role.title}
                       </p>
                     </div>
 
