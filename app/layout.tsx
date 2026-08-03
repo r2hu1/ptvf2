@@ -72,7 +72,7 @@ export default function RootLayout({
           <Toaster position="bottom-right" />
         </PreloaderProvider>
         <Analytics />
-        <div className="inset-0 -mt-30 h-full w-full items-center px-5 py-30 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,rgb(103,84,189)_100%)]" />
+        <div className="inset-0 -mt-40 h-full w-full items-center px-5 py-30 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,rgb(103,84,189)_100%)]" />
       </body>
     </html>
   );
