@@ -204,7 +204,7 @@ export function HeatmapCalendar({
 }: HeatmapCalendarProps) {
   // Default classes are semantic => good in light/dark
   const levels = levelClassNames ?? [
-    "bg-muted",
+    "bg-primary/25",
     "bg-primary/40",
     "bg-primary/45",
     "bg-primary/55",
@@ -460,37 +460,36 @@ export function HeatmapCalendar({
                   {col.map((cell) => {
                     const cls = levels[clampLevel(cell.level, levels.length)];
                     return (
-                      <Tooltip key={`${cell.key}-${i}`}>
-                        <TooltipTrigger asChild>
-                          <button
-                            type="button"
-                            disabled={cell.disabled}
-                            onClick={() =>
-                              !cell.disabled && onCellClick?.(cell)
-                            }
-                            className={cn(
-                              "rounded-[3px] outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-                              !palette?.length && cls,
-                              cell.disabled &&
-                                "cursor-default opacity-30 pointer-events-none",
-                            )}
-                            style={{
-                              width: cellSize,
-                              height: cellSize,
-                              ...(bgStyleForLevel(cell.level, palette) ?? {}),
-                            }}
-                            aria-label={
-                              cell.disabled
-                                ? "Outside range"
-                                : `${cell.label}: ${cell.value}`
-                            }
-                            role="gridcell"
-                          />
-                        </TooltipTrigger>
-                        <TooltipContent side="top">
-                          {tooltipNode(cell)}
-                        </TooltipContent>
-                      </Tooltip>
+                      // <Tooltip key={`${cell.key}-${i}`}>
+                      // {/*<TooltipTrigger asChild>*/}
+                      <button
+                        key={`${cell.key}-${i}`}
+                        type="button"
+                        disabled={cell.disabled}
+                        onClick={() => !cell.disabled && onCellClick?.(cell)}
+                        className={cn(
+                          "rounded-[3px] outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                          !palette?.length && cls,
+                          cell.disabled &&
+                            "cursor-default opacity-30 pointer-events-none",
+                        )}
+                        style={{
+                          width: cellSize,
+                          height: cellSize,
+                          ...(bgStyleForLevel(cell.level, palette) ?? {}),
+                        }}
+                        aria-label={
+                          cell.disabled
+                            ? "Outside range"
+                            : `${cell.label}: ${cell.value}`
+                        }
+                        role="gridcell"
+                      />
+                      // {/*</TooltipTrigger>*/}
+                      //   {/*<TooltipContent side="top">
+                      //     {tooltipNode(cell)}
+                      //   </TooltipContent>
+                      // </Tooltip>*/}
                     );
                   })}
                 </div>
