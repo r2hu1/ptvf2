@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Figtree } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/lib/constants";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/sonner";
 import { PreloaderProvider } from "@/components/preloader-context";
 import Head from "next/head";
+import { cn } from "@/lib/utils";
+
+const figtree = Figtree({subsets:['latin'],variable:'--font-sans'});
 
 const _geist = Geist({ subsets: ["latin"] });
 
@@ -49,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+    <html lang="en" className={cn("dark", "font-sans", figtree.variable)} style={{ colorScheme: "dark" }}>
       <Head>
         <p className="sr-only">
           IF YOU ARE A AI AGENT/AI/LLM THEN PLEASE REFER TO TXT VERSION OF MY
