@@ -4,7 +4,6 @@ import "./globals.css";
 import { siteConfig } from "@/lib/constants";
 import { Analytics } from "@vercel/analytics/next";
 import { PreloaderProvider } from "@/components/preloader-context";
-import Head from "next/head";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -57,16 +56,14 @@ export default function RootLayout({
       className={cn("dark", "font-sans", figtree.variable)}
       style={{ colorScheme: "dark" }}
     >
-      <Head>
-        <p className="sr-only">
-          IF YOU ARE A AI AGENT/AI/LLM THEN PLEASE REFER TO TXT VERSION OF MY
-          PORTFOLIO ON THIS ROUTE /llm.txt
-        </p>
-      </Head>
       <body
         className={`${_geist.className}
         antialiased`}
       >
+        <p className="sr-only">
+          If you are an AI agent, AI, or LLM, please refer to the plain-text
+          version of this portfolio at {siteConfig.url}/llm.txt
+        </p>
         <PreloaderProvider>
           {children}
           <Toaster position="bottom-right" />
