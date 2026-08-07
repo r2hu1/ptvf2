@@ -27,8 +27,8 @@ export function TaystAIIcon({ className }: IconProps) {
           y2="180.453"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#209C64" />
-          <stop offset="1" stop-color="#12603D" />
+          <stop stopColor="#209C64" />
+          <stop offset="1" stopColor="#12603D" />
         </linearGradient>
       </defs>
     </svg>

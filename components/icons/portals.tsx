@@ -54,8 +54,8 @@ export function PortalsIcon({ className }: IconProps) {
             y1="29.818"
             y2="23.581"
           >
-            <stop stop-color="#7FE89C"></stop>
-            <stop offset="1" stop-color="#31B158"></stop>
+            <stop stopColor="#7FE89C"></stop>
+            <stop offset="1" stopColor="#31B158"></stop>
           </linearGradient>
           <linearGradient
             gradientUnits="userSpaceOnUse"
@@ -65,8 +65,8 @@ export function PortalsIcon({ className }: IconProps) {
             y1="16.5"
             y2="18"
           >
-            <stop stop-color="#5E53F5"></stop>
-            <stop offset="1" stop-color="#786FE8"></stop>
+            <stop stopColor="#5E53F5"></stop>
+            <stop offset="1" stopColor="#786FE8"></stop>
           </linearGradient>
           <linearGradient
             gradientUnits="userSpaceOnUse"
@@ -76,8 +76,8 @@ export function PortalsIcon({ className }: IconProps) {
             y1="21"
             y2="15.5"
           >
-            <stop offset="0.383" stop-color="#43CF6A"></stop>
-            <stop offset="1" stop-color="#268F46"></stop>
+            <stop offset="0.383" stopColor="#43CF6A"></stop>
+            <stop offset="1" stopColor="#268F46"></stop>
           </linearGradient>
           <linearGradient
             gradientUnits="userSpaceOnUse"
@@ -87,8 +87,8 @@ export function PortalsIcon({ className }: IconProps) {
             y1="30.841"
             y2="24.604"
           >
-            <stop stop-color="#5E53F5"></stop>
-            <stop offset="1" stop-color="#7970F7"></stop>
+            <stop stopColor="#5E53F5"></stop>
+            <stop offset="1" stopColor="#7970F7"></stop>
           </linearGradient>
           <linearGradient
             gradientUnits="userSpaceOnUse"
@@ -98,8 +98,8 @@ export function PortalsIcon({ className }: IconProps) {
             y1="0"
             y2="12.792"
           >
-            <stop stop-color="#7FE89C"></stop>
-            <stop offset="1" stop-color="#36BB5B"></stop>
+            <stop stopColor="#7FE89C"></stop>
+            <stop offset="1" stopColor="#36BB5B"></stop>
           </linearGradient>
           <linearGradient
             gradientUnits="userSpaceOnUse"
@@ -109,8 +109,8 @@ export function PortalsIcon({ className }: IconProps) {
             y1="3.5"
             y2="18"
           >
-            <stop stop-color="#5E53F5"></stop>
-            <stop offset="1" stop-color="#7970F7"></stop>
+            <stop stopColor="#5E53F5"></stop>
+            <stop offset="1" stopColor="#7970F7"></stop>
           </linearGradient>
         </defs>
       </svg>
