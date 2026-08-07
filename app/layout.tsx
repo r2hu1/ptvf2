@@ -6,6 +6,7 @@ import { PreloaderProvider } from "@/components/preloader-context";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/lib/constants";
+import { ThemeProvider } from "@/components/theme-provider";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -122,8 +123,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("dark", "font-sans", figtree.variable)}
-      style={{ colorScheme: "dark" }}
+      className={cn("font-sans", figtree.variable)}
+      // style={{ colorScheme: "dark" }}
     >
       <body
         className={`${_geist.className}
@@ -137,12 +138,18 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        <PreloaderProvider>
-          {children}
-          <Toaster position="bottom-right" />
-        </PreloaderProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <PreloaderProvider>
+            {children}
+            <Toaster position="bottom-right" />
+          </PreloaderProvider>
+        </ThemeProvider>
         <Analytics />
-        <div className="inset-0 -mt-40 h-full w-full items-center px-5 py-30 [background:radial-gradient(125%_125%_at_50%_10%,#000_35%,rgb(103,84,189)_100%)]" />
       </body>
     </html>
   );
