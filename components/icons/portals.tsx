@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 interface IconProps {
   className?: string;
 }
@@ -5,7 +7,10 @@ interface IconProps {
 export function PortalsIcon({ className }: IconProps) {
   return (
     <a
-      className={`flex size-10 items-center justify-center rounded-[14px] bg-foreground ${className ?? ""}`}
+      className={cn(
+        "flex size-10 items-center justify-center rounded-md bg-foreground grayscale group-hover:grayscale-0",
+        className,
+      )}
       href="/"
     >
       <svg

@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 interface IconProps {
   className?: string;
 }
@@ -8,7 +10,7 @@ export function TaystAIIcon({ className }: IconProps) {
       width="37"
       height="37"
       viewBox="0 0 224 224"
-      className={className}
+      className={cn("grayscale group-hover:grayscale-0", className)}
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >

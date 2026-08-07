@@ -1,3 +1,5 @@
+import { cn } from "@/lib/utils";
+
 interface IconProps {
   className?: string;
 }
@@ -11,9 +13,9 @@ export const RosterProIcon = ({ className }: IconProps) => {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       xlinkHref="http://www.w3.org/1999/xlink"
-      className={className}
+      className={cn("grayscale group-hover:grayscale-0", className)}
     >
-      <rect width="37" height="37" rx="70" fill="url(#pattern0_9_11)" />
+      <rect width="37" height="37" rx="8" fill="url(#pattern0_9_11)" />
       <defs>
         <pattern
           id="pattern0_9_11"

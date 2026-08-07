@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { TaystAIIcon } from "@/components/icons/tayst-ai";
 import { PortalsIcon } from "@/components/icons/portals";
-import { RosterProIcon } from "./icons/roster-pro";
+import { RosterProIcon } from "@/components/icons/roster-pro";
 
 interface RoleDetails {
   title: string;
@@ -14,7 +14,7 @@ interface RoleDetails {
   type: string;
   period: string;
   bullets: string[];
-  icon?: React.ReactNode;
+  icon?: React.ComponentType<{ className?: string }>;
 }
 
 const experienceData: RoleDetails[] = [
@@ -30,7 +30,7 @@ const experienceData: RoleDetails[] = [
       "Established end-to-end type safety by building shared API contracts, reusable UI components, and schema-first development workflows across the entire stack.",
       "Drove technical architecture, infrastructure, and product development with a strong focus on scalability, performance, reliability, and developer experience.",
     ],
-    icon: <RosterProIcon />,
+    icon: RosterProIcon,
   },
   {
     company: "Tayst AI",
@@ -44,7 +44,7 @@ const experienceData: RoleDetails[] = [
       "Coordinated directly with US-based stakeholders to translate product requirements into technical roadmaps and shipped features on aggressive timelines.",
       "Owned deployment pipelines and infrastructure configuration on Vercel and serverless environments, maintaining high uptime for paying customers.",
     ],
-    icon: <TaystAIIcon />,
+    icon: TaystAIIcon,
   },
   {
     company: "Tayst AI",
@@ -57,7 +57,7 @@ const experienceData: RoleDetails[] = [
       "Contributed to the frontend in Next.js and React, delivering core product UI flows and integrating backend APIs to create a seamless end-to-end user experience.",
       "Established database schema, authentication flows, and API contracts early in the product lifecycle, enabling rapid iteration.",
     ],
-    icon: <TaystAIIcon />,
+    icon: TaystAIIcon,
   },
   {
     company: "Portals",
@@ -70,7 +70,7 @@ const experienceData: RoleDetails[] = [
       "Integrated third-party and internal REST APIs, handling edge cases and loading states to ensure a smooth user experience across devices.",
       "Collaborated directly with the founding team on product features and frontend architecture decisions, iterating quickly based on user feedback.",
     ],
-    icon: <PortalsIcon />,
+    icon: PortalsIcon,
   },
   // {
   //   company: "GitHub & Open Source",
@@ -140,7 +140,11 @@ export default function WorkingExperience() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-2">
-                      {role.icon}
+                      {role.icon && (
+                        <role.icon
+                          className={isExpanded ? "grayscale-0" : undefined}
+                        />
+                      )}
                       <div>
                         <h3 className="text-sm font-medium text-foreground transition-colors group-hover:text-foreground">
                           {role.company}
