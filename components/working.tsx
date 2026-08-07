@@ -144,7 +144,7 @@ export default function WorkingExperience() {
                       <span className="text-[10px] text-foreground/40 flex items-center gap-1">
                         <Calendar className="size-3" /> {role.period}
                       </span>
-                      <span className="text-[9px] bg-white/[0.03] text-foreground/50 px-1.5 py-0.5 rounded border border-white/5">
+                      <span className="text-[9px] bg-transparent text-foreground/50 px-1.5 py-0.5 rounded border border-border">
                         {role.type}
                       </span>
                     </div>
@@ -159,13 +159,13 @@ export default function WorkingExperience() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden pt-2"
                       >
-                        <ul className="space-y-2.5 border-t border-white/5 pt-3 mt-1">
+                        <ul className="space-y-2.5 border-t border-foreground/5 pt-3 mt-1">
                           {role.bullets.map((bullet, bIdx) => (
                             <li
                               key={`${role.company}-${role.period}-${bIdx}`}
                               className="text-xs text-foreground/60 leading-relaxed list-none pl-3 relative"
                             >
-                              <span className="absolute left-0 top-2 size-1 rounded-full bg-white/30" />
+                              <span className="absolute left-0 top-2 size-1 rounded-full bg-foreground/30" />
                               {bullet}
                             </li>
                           ))}
