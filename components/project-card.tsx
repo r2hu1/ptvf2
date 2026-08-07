@@ -52,10 +52,10 @@ export function ProjectCard({ project }: { project: ProjectType }) {
         )}
 
         {/* Language and stars (if present) */}
-        <div className="flex items-center gap-3.5 pt-2 text-[10px] text-foreground/40 border-t border-white/5">
+        <div className="flex items-center gap-3.5 pt-3 text-[10px] text-foreground/40 border-t border-border">
           {project.language && (
             <div className="flex items-center gap-1.5">
-              <span className="size-1.5 rounded-full bg-white/40" />
+              <span className="size-1.5 rounded-full bg-foreground/40" />
               <span>{project.language}</span>
             </div>
           )}
