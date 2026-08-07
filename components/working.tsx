@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
+import { TaystAIIcon } from "@/components/icons/tayst-ai";
+import { PortalsIcon } from "@/components/icons/portals";
 
 interface RoleDetails {
   title: string;
@@ -11,6 +13,7 @@ interface RoleDetails {
   type: string;
   period: string;
   bullets: string[];
+  icon?: React.ReactNode;
 }
 
 const experienceData: RoleDetails[] = [
@@ -39,6 +42,9 @@ const experienceData: RoleDetails[] = [
       "Coordinated directly with US-based stakeholders to translate product requirements into technical roadmaps and shipped features on aggressive timelines.",
       "Owned deployment pipelines and infrastructure configuration on Vercel and serverless environments, maintaining high uptime for paying customers.",
     ],
+    icon: (
+      <TaystAIIcon className="grayscale group-hover:grayscale-0!" />
+    ),
   },
   {
     company: "Tayst AI",
@@ -51,6 +57,9 @@ const experienceData: RoleDetails[] = [
       "Contributed to the frontend in Next.js and React, delivering core product UI flows and integrating backend APIs to create a seamless end-to-end user experience.",
       "Established database schema, authentication flows, and API contracts early in the product lifecycle, enabling rapid iteration.",
     ],
+    icon: (
+      <TaystAIIcon className="grayscale group-hover:grayscale-0!" />
+    ),
   },
   {
     company: "Portals",
@@ -63,6 +72,7 @@ const experienceData: RoleDetails[] = [
       "Integrated third-party and internal REST APIs, handling edge cases and loading states to ensure a smooth user experience across devices.",
       "Collaborated directly with the founding team on product features and frontend architecture decisions, iterating quickly based on user feedback.",
     ],
+    icon: <PortalsIcon />,
   },
   // {
   //   company: "GitHub & Open Source",
@@ -131,13 +141,16 @@ export default function WorkingExperience() {
                   className="cursor-pointer space-y-1.5 p-4 -m-4 rounded-lg hover:bg-white/[0.01] transition-all duration-200"
                 >
                   <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h3 className="text-sm font-medium text-foreground transition-colors group-hover:text-foreground">
-                        {role.company}
-                      </h3>
-                      <p className="text-xs text-foreground/50 font-normal mt-0.5">
-                        {role.title}
-                      </p>
+                    <div className="flex items-center gap-2">
+                      {role.icon}
+                      <div>
+                        <h3 className="text-sm font-medium text-foreground transition-colors group-hover:text-foreground">
+                          {role.company}
+                        </h3>
+                        <p className="text-xs text-foreground/50 font-normal mt-0.5">
+                          {role.title}
+                        </p>
+                      </div>
                     </div>
 
                     <div className="flex flex-col items-end gap-1 shrink-0 text-right">
