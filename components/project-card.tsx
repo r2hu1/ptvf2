@@ -19,12 +19,12 @@ export function ProjectCard({ project }: { project: ProjectType }) {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block rounded-xl border bg-background hover:bg-white/[0.02] p-5 transition-all duration-300 relative overflow-hidden"
+      className="group block rounded-md border bg-background hover:bg-white/[0.02] p-5 transition-all duration-300 relative overflow-hidden"
     >
       <div className="space-y-3">
         {/* Title and external link icon */}
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-sm font-medium text-foreground/90 group-hover:text-foreground transition-colors duration-200">
+          <h3 className="text-sm capitalize font-medium text-foreground/90 group-hover:text-foreground transition-colors duration-200">
             {project.name}
           </h3>
           <ArrowUpRight className="size-3.5 text-foreground/30 group-hover:text-foreground/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0 mt-0.5" />
