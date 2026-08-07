@@ -20,6 +20,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { FaEnvelope } from "react-icons/fa";
+import ThemeTogglerButtonDemo from "./theme-changer";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
   { icon: FaGithub, url: siteConfig.github, label: "GitHub" },
@@ -38,7 +39,7 @@ export function Header() {
       initial={{ opacity: 0 }}
       animate={done ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="p-6 sm:p-8 bg-black"
+      className="p-6 sm:p-8 bg-background"
     >
       <div className="flex gap-4 flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
@@ -52,21 +53,21 @@ export function Header() {
                 layoutId="avatar"
                 src="https://github.com/r2hu1.png"
                 alt="Rahul Rajput"
-                className="absolute inset-0 size-11 rounded-full! border border-white/10"
+                className="absolute inset-0 size-11 rounded-full! border border-background/10"
                 transition={{ type: "spring", stiffness: 180, damping: 22 }}
               />
             )}
 
-            <span className="absolute bottom-0.5 right-0.5 block h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-black">
+            <span className="absolute bottom-0.5 right-0.5 block h-2 w-2 rounded-full bg-emerald-500 ring-2 ring-background">
               <span className="absolute inset-0 block h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
             </span>
           </div>
 
           <div className="grid">
-            <h1 className="text-sm font-semibold tracking-tight text-white">
+            <h1 className="text-sm font-semibold tracking-tight text-foreground">
               {siteConfig.name}
             </h1>
-            <p className="text-xs text-white/50 font-medium">
+            <p className="text-xs text-foreground/50 font-medium">
               Software Engineer
             </p>
           </div>
