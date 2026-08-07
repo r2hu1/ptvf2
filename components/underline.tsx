@@ -2,7 +2,7 @@ import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
 
 export function Underline({ children }: { children: React.ReactNode }) {
   return (
-    <span className="underline underline-offset-3 text-white/80">
+    <span className="underline underline-offset-3 text-foreground/80">
       {children}
     </span>
   );
@@ -18,7 +18,7 @@ export function HoverText({
   return (
     <HoverCard>
       <HoverCardTrigger>
-        <span className="underline underline-offset-3 text-white/80">
+        <span className="underline underline-offset-3 text-foreground/80">
           {text}
         </span>
       </HoverCardTrigger>

@@ -37,10 +37,10 @@ export function Hero() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className="p-6 sm:p-8 -mt-4 bg-black"
+      className="p-6 sm:p-8 -mt-4 bg-background"
     >
       <div className="space-y-6">
-        <p className="text-[14.5px] text-white/70 leading-relaxed font-normal">
+        <p className="text-[14.5px] text-foreground/70 leading-relaxed font-normal">
           I'm a software engineer who enjoys building things from scratch. I've
           worked with <Underline>startups</Underline>, built products for{" "}
           <Underline>clients</Underline>, and spent years creating my own
@@ -52,7 +52,7 @@ export function Hero() {
           <Underline>hundreds of GitHub stars.</Underline>
         </p>
 
-        <p className="text-[14.5px] text-white/70 leading-relaxed font-normal">
+        <p className="text-[14.5px] text-foreground/70 leading-relaxed font-normal">
           When I'm not working, I'm usually shipping another side project or
           contributing to projects I use myself.
         </p>

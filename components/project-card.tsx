@@ -19,20 +19,20 @@ export function ProjectCard({ project }: { project: ProjectType }) {
       href={project.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block rounded-xl border bg-black hover:bg-white/[0.02] p-5 transition-all duration-300 relative overflow-hidden"
+      className="group block rounded-xl border bg-background hover:bg-white/[0.02] p-5 transition-all duration-300 relative overflow-hidden"
     >
       <div className="space-y-3">
         {/* Title and external link icon */}
         <div className="flex items-start justify-between gap-3">
-          <h3 className="text-sm font-medium text-white/90 group-hover:text-white transition-colors duration-200">
+          <h3 className="text-sm font-medium text-foreground/90 group-hover:text-foreground transition-colors duration-200">
             {project.name}
           </h3>
-          <ArrowUpRight className="size-3.5 text-white/30 group-hover:text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0 mt-0.5" />
+          <ArrowUpRight className="size-3.5 text-foreground/30 group-hover:text-foreground/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0 mt-0.5" />
         </div>
 
         {/* Description */}
         {project.description && (
-          <p className="text-xs text-white/60 line-clamp-2 leading-relaxed font-normal">
+          <p className="text-xs text-foreground/60 line-clamp-2 leading-relaxed font-normal">
             {project.description}
           </p>
         )}
@@ -43,7 +43,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-[9px] bg-white/[0.03] text-white/60 border border-white/5 px-1.5 py-0.5 rounded"
+                className="text-[9px] bg-white/[0.03] text-foreground/60 border border-white/5 px-1.5 py-0.5 rounded"
               >
                 {tag}
               </span>
@@ -52,7 +52,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
         )}
 
         {/* Language and stars (if present) */}
-        <div className="flex items-center gap-3.5 pt-2 text-[10px] text-white/40 border-t border-white/5">
+        <div className="flex items-center gap-3.5 pt-2 text-[10px] text-foreground/40 border-t border-white/5">
           {project.language && (
             <div className="flex items-center gap-1.5">
               <span className="size-1.5 rounded-full bg-white/40" />
@@ -62,7 +62,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
           {project.stargazers_count !== undefined &&
             project.stargazers_count > 0 && (
               <div className="flex items-center gap-1">
-                <Star className="size-3 text-white/40 group-hover:text-yellow-400 transition-colors" />
+                <Star className="size-3 text-foreground/40 group-hover:text-yellow-400 transition-colors" />
                 <span>{project.stargazers_count} stars</span>
               </div>
             )}

@@ -100,7 +100,7 @@ export function Projects() {
     activeTab === "featured" ? featuredProjects : githubRepos;
 
   return (
-    <section id="projects" className="p-6 sm:p-8 bg-black">
+    <section id="projects" className="p-6 sm:p-8 bg-background">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -110,8 +110,8 @@ export function Projects() {
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-sm text-white tracking-wider">Projects</h2>
-            <p className="text-xs text-white/40 mt-1">
+            <h2 className="text-sm text-foreground tracking-wider">Projects</h2>
+            <p className="text-xs text-foreground/40 mt-1">
               Some of my active builds and open-source contributions
             </p>
           </div>
@@ -151,7 +151,7 @@ export function Projects() {
         {loading ? (
           <div className="grid gap-px overflow-hidden sm:grid-cols-2">
             {Array.from({ length: 4 }).map((_, index) => (
-              <div key={index} className="bg-black p-5 space-y-3">
+              <div key={index} className="bg-background p-5 space-y-3">
                 <Skeleton className="w-1/2 h-4 bg-white/5" />
                 <Skeleton className="w-full h-8 bg-white/5" />
                 <div className="flex gap-2">
@@ -163,7 +163,7 @@ export function Projects() {
           </div>
         ) : error ? (
           <div className="text-center py-10 border border-white/5 rounded-lg bg-white/[0.01]">
-            <p className="text-xs text-white/55">
+            <p className="text-xs text-foreground/55">
               Unable to load GitHub repositories. Please try again later.
             </p>
           </div>
@@ -186,7 +186,7 @@ export function Projects() {
             href="https://github.com/r2hu1"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-xs text-white/50 hover:text-white transition-colors duration-200 flex items-center gap-1.5"
+            className="text-xs text-foreground/50 hover:text-foreground transition-colors duration-200 flex items-center gap-1.5"
           >
             View all on GitHub <ArrowUpRight className="size-3.5" />
           </Link>

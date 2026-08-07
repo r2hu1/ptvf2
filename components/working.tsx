@@ -86,7 +86,7 @@ export default function WorkingExperience() {
   };
 
   return (
-    <section id="experience" className="p-6 sm:p-8 bg-black">
+    <section id="experience" className="p-6 sm:p-8 bg-background">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -95,8 +95,8 @@ export default function WorkingExperience() {
         className="space-y-6"
       >
         <div>
-          <h2 className="text-sm text-white tracking-wider">Experience</h2>
-          <p className="text-xs text-white/40 mt-1">
+          <h2 className="text-sm text-foreground tracking-wider">Experience</h2>
+          <p className="text-xs text-foreground/40 mt-1">
             Professional timeline and work achievements
           </p>
         </div>
@@ -111,14 +111,14 @@ export default function WorkingExperience() {
               >
                 {/* Timeline node */}
                 <div
-                  className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-white/10 bg-black transition-all duration-300 flex items-center justify-center ${
+                  className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-foreground/10 bg-background transition-all duration-300 flex items-center justify-center ${
                     isExpanded
-                      ? "border-white scale-110"
-                      : "group-hover:border-white/50"
+                      ? "border-background scale-110"
+                      : "group-hover:border-background/80"
                   }`}
                 >
                   <div
-                    className={`size-1.5 rounded-full bg-white transition-all duration-300 ${
+                    className={`size-1.5 rounded-full bg-foreground transition-all duration-300 ${
                       isExpanded
                         ? "opacity-100 scale-100"
                         : "opacity-30 scale-75"
@@ -132,19 +132,19 @@ export default function WorkingExperience() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-sm font-medium text-white transition-colors group-hover:text-white">
+                      <h3 className="text-sm font-medium text-foreground transition-colors group-hover:text-foreground">
                         {role.company}
                       </h3>
-                      <p className="text-xs text-white/50 font-normal mt-0.5">
+                      <p className="text-xs text-foreground/50 font-normal mt-0.5">
                         {role.title}
                       </p>
                     </div>
 
                     <div className="flex flex-col items-end gap-1 shrink-0 text-right">
-                      <span className="text-[10px] text-white/40 flex items-center gap-1">
+                      <span className="text-[10px] text-foreground/40 flex items-center gap-1">
                         <Calendar className="size-3" /> {role.period}
                       </span>
-                      <span className="text-[9px] bg-white/[0.03] text-white/50 px-1.5 py-0.5 rounded border border-white/5">
+                      <span className="text-[9px] bg-white/[0.03] text-foreground/50 px-1.5 py-0.5 rounded border border-white/5">
                         {role.type}
                       </span>
                     </div>
@@ -163,7 +163,7 @@ export default function WorkingExperience() {
                           {role.bullets.map((bullet, bIdx) => (
                             <li
                               key={`${role.company}-${role.period}-${bIdx}`}
-                              className="text-xs text-white/60 leading-relaxed list-none pl-3 relative"
+                              className="text-xs text-foreground/60 leading-relaxed list-none pl-3 relative"
                             >
                               <span className="absolute left-0 top-2 size-1 rounded-full bg-white/30" />
                               {bullet}
