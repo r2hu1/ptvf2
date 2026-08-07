@@ -117,7 +117,7 @@ export function Projects() {
           </div>
 
           {/* Minimal tab switcher */}
-          <div className="flex items-center gap-2 border border-white/5 bg-white/[0.01] p-1 rounded-md w-fit">
+          <div className="flex items-center gap-0.5 border border-border bg-secondary/10 p-1 rounded-full w-fit">
             {/*<Button
               size="sm"
               className="h-6 text-sm px-2 font-normal cursor-pointer border"
@@ -181,7 +181,7 @@ export function Projects() {
           </motion.div>
         )}
 
-        <div className="pt-2 flex justify-end">
+        <div className="pt-2 hidden justify-end">
           <Link
             href="https://github.com/r2hu1"
             target="_blank"
