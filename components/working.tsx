@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Calendar } from "lucide-react";
 import { TaystAIIcon } from "@/components/icons/tayst-ai";
 import { PortalsIcon } from "@/components/icons/portals";
+import { RosterProIcon } from "./icons/roster-pro";
 
 interface RoleDetails {
   title: string;
@@ -29,6 +30,7 @@ const experienceData: RoleDetails[] = [
       "Established end-to-end type safety by building shared API contracts, reusable UI components, and schema-first development workflows across the entire stack.",
       "Drove technical architecture, infrastructure, and product development with a strong focus on scalability, performance, reliability, and developer experience.",
     ],
+    icon: <RosterProIcon />,
   },
   {
     company: "Tayst AI",
@@ -42,9 +44,7 @@ const experienceData: RoleDetails[] = [
       "Coordinated directly with US-based stakeholders to translate product requirements into technical roadmaps and shipped features on aggressive timelines.",
       "Owned deployment pipelines and infrastructure configuration on Vercel and serverless environments, maintaining high uptime for paying customers.",
     ],
-    icon: (
-      <TaystAIIcon className="grayscale group-hover:grayscale-0!" />
-    ),
+    icon: <TaystAIIcon />,
   },
   {
     company: "Tayst AI",
@@ -57,9 +57,7 @@ const experienceData: RoleDetails[] = [
       "Contributed to the frontend in Next.js and React, delivering core product UI flows and integrating backend APIs to create a seamless end-to-end user experience.",
       "Established database schema, authentication flows, and API contracts early in the product lifecycle, enabling rapid iteration.",
     ],
-    icon: (
-      <TaystAIIcon className="grayscale group-hover:grayscale-0!" />
-    ),
+    icon: <TaystAIIcon />,
   },
   {
     company: "Portals",

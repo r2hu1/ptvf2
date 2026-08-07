@@ -5,7 +5,7 @@ interface IconProps {
 export function PortalsIcon({ className }: IconProps) {
   return (
     <a
-      className={`flex size-10 items-center justify-center rounded-[14px] bg-foreground grayscale group-hover:grayscale-0 ${className ?? ""}`}
+      className={`flex size-10 items-center justify-center rounded-[14px] bg-foreground ${className ?? ""}`}
       href="/"
     >
       <svg
