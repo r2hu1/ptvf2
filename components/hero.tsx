@@ -7,7 +7,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { useEffect, useState } from "react";
 import { HeatmapCalendar } from "./heatmap-calendar";
-import { Underline } from "./underline";
+import { HoverText, Underline } from "./underline";
 import { toast } from "sonner";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
@@ -41,15 +41,21 @@ export function Hero() {
     >
       <div className="space-y-6">
         <p className="text-[14.5px] text-foreground/70 leading-relaxed font-normal">
-          I'm a software engineer who enjoys building things from scratch. I've
-          worked with <Underline>startups</Underline>, built products for{" "}
-          <Underline>clients</Underline>, and spent years creating my own
-          projects. Most of my time is spent building products, contributing to
-          open source, and experimenting with new ideas. I've built{" "}
-          <Underline>50+ projects</Underline> ranging from AI tools and SaaS
-          products to developer tools and automation software, and my
-          open-source work has earned{" "}
-          <Underline>hundreds of GitHub stars.</Underline>
+          I'm a software engineer who enjoys building things. I've worked with{" "}
+          <HoverText text="startups">Pre-Seed, Seed, and Series A.</HoverText>,{" "}
+          <Underline>mncs</Underline> built products for{" "}
+          <HoverText text="clients">i also do freelancing.</HoverText>, and
+          spent years creating my own projects. Most of my time is spent
+          building products, contributing to open source, and experimenting with
+          new ideas. I've built{" "}
+          <HoverText text="60+ projects">
+            More than 64+ open source projects, 200+ closed source projects.
+          </HoverText>{" "}
+          ranging from AI tools and SaaS products to developer tools and
+          automation software, and my open-source work has earned{" "}
+          <Link href={siteConfig.github} target="_blank">
+            <Underline>hundreds of GitHub stars</Underline>.
+          </Link>
         </p>
 
         <p className="text-[14.5px] text-foreground/70 leading-relaxed font-normal">
@@ -59,16 +65,15 @@ export function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
-          <Button size="sm" variant="default" asChild>
+          <Button variant="default" asChild>
             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               View Resume <ArrowUpRight className="size-3.5" />
             </Link>
           </Button>
 
           <Button
-            size="sm"
             className="cursor-pointer"
-            variant="outline"
+            variant="secondary"
             onClick={handleCopyEmail}
           >
             {copied ? (
@@ -84,13 +89,13 @@ export function Hero() {
         </div>
 
         {/* GitHub Contribution Graph */}
-        <ScrollArea className="py-6 -mb-6">
+        <ScrollArea className="py-4 -mb-6">
           <Link
             href="https://github.com/r2hu1"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <HeatmapCalendar legend={false} data={data} />
+            <HeatmapCalendar className="-ml-10!" legend={false} data={data} />
           </Link>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
