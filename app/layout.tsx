@@ -7,6 +7,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/sonner";
 import { siteConfig } from "@/lib/constants";
 import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -145,7 +146,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <PreloaderProvider>
-            {children}
+            <TooltipProvider>{children}</TooltipProvider>
             <Toaster position="bottom-right" />
           </PreloaderProvider>
         </ThemeProvider>

@@ -1,4 +1,8 @@
-import { HoverCard, HoverCardContent, HoverCardTrigger } from "./ui/hover-card";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "./ui/tooltip";
 
 export function Underline({ children }: { children: React.ReactNode }) {
   return (
@@ -16,13 +20,13 @@ export function HoverText({
   children: React.ReactNode;
 }) {
   return (
-    <HoverCard>
-      <HoverCardTrigger>
-        <span className="underline underline-offset-3 text-foreground/80">
+    <Tooltip>
+      <TooltipTrigger>
+        <span className="underline cursor-help underline-offset-3 text-foreground/80">
           {text}
         </span>
-      </HoverCardTrigger>
-      <HoverCardContent>{children}</HoverCardContent>
-    </HoverCard>
+      </TooltipTrigger>
+      <TooltipContent>{children}</TooltipContent>
+    </Tooltip>
   );
 }
