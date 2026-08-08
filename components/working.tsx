@@ -109,7 +109,7 @@ export default function WorkingExperience() {
           </p>
         </div>
 
-        <div className="relative border-l border-border pt-1 pl-5.5 ml-3 space-y-8">
+        <div className="relative border-l border-border pt-1 pl-5.5 ml-1.5 space-y-8">
           {experienceData.map((role, idx) => {
             const isExpanded = expandedIndex === idx;
             return (
@@ -121,8 +121,8 @@ export default function WorkingExperience() {
                 <div
                   className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-foreground/10 bg-background transition-all duration-300 flex items-center justify-center ${
                     isExpanded
-                      ? "border-background scale-110"
-                      : "group-hover:border-background/80"
+                      ? "border-border scale-110"
+                      : "group-hover:border-foreground/30"
                   }`}
                 >
                   <div
@@ -136,7 +136,7 @@ export default function WorkingExperience() {
 
                 <div
                   onClick={() => toggleExpand(idx)}
-                  className="cursor-pointer space-y-1.5 p-4 -m-4 rounded-lg hover:bg-white/[0.01] transition-all duration-200"
+                  className="cursor-pointer space-y-1.5 p-4 -m-4 -ml-3 rounded-lg hover:bg-secondary/50 transition-all duration-200"
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex items-center gap-2">
@@ -157,10 +157,10 @@ export default function WorkingExperience() {
 
                     <div className="flex flex-col items-end gap-1 shrink-0 text-right">
                       <span className="text-[10px] text-foreground/40 flex items-center gap-1">
-                        <Calendar className="size-3" /> {role.period}
+                        <Calendar className="size-2.5" /> {role.period}
                       </span>
                       <span className="text-[9px] bg-transparent text-foreground/50 px-1.5 py-0.5 rounded border border-border">
-                        {role.type}
+                        {role.type}, {role.location}
                       </span>
                     </div>
                   </div>
@@ -174,7 +174,7 @@ export default function WorkingExperience() {
                         transition={{ duration: 0.3, ease: "easeInOut" }}
                         className="overflow-hidden pt-2"
                       >
-                        <ul className="space-y-2.5 border-t border-foreground/5 pt-3 mt-1">
+                        <ul className="space-y-2.5 pt-1 mt-1">
                           {role.bullets.map((bullet, bIdx) => (
                             <li
                               key={`${role.company}-${role.period}-${bIdx}`}
