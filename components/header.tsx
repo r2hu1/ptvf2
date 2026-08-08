@@ -78,7 +78,7 @@ export function Header() {
             <div className="flex items-center">
               {socials.slice(0, 3).map((social) => (
                 <Button
-                  size="icon-sm"
+                  size="icon"
                   variant="secondary"
                   className="rounded-full cursor-pointer -ml-2"
                   key={social.label}
