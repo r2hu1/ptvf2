@@ -14,12 +14,10 @@ export function PortalsIcon({ className }: IconProps) {
       href="/"
     >
       <svg
-        className="shrink-0"
+        className="size-7 shrink-0"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
-        height="30.2"
         viewBox="3.187 1.284 34.857 31.566"
-        width="33.3"
       >
         <path
           d="M14.627 20.412c.731-1.315 2.621-1.317 3.355-.003l1.833 3.282c.424.76.425 1.686.003 2.446l-2.655 4.783a3.66 3.66 0 1 1-6.399-3.553l3.863-6.955Z"
