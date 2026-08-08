@@ -8,7 +8,7 @@ export function PortalsIcon({ className }: IconProps) {
   return (
     <a
       className={cn(
-        "flex size-10 items-center justify-center rounded-md bg-foreground grayscale group-hover:grayscale-0",
+        "flex size-10 items-center justify-center rounded-md border grayscale group-hover:grayscale-0",
         className,
       )}
       href="/"
