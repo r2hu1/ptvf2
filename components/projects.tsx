@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ProjectCard, ProjectType } from "./project-card";
 import { Skeleton } from "./ui/skeleton";
-import { ArrowUpRight, Pin } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Pin } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { siteConfig } from "@/lib/constants";
@@ -112,12 +112,12 @@ export function Projects() {
           <div>
             <h2 className="text-sm text-foreground tracking-wider">Projects</h2>
             <p className="text-xs text-foreground/40 mt-1">
-              Some of my active builds and open-source contributions
+              My projects, feeding live from git pin.
             </p>
           </div>
 
           {/* Minimal tab switcher */}
-          <div className="flex items-center gap-0.5 border border-border bg-secondary/10 p-1 rounded-full w-fit">
+          <div className="flex items-center gap-0.5 rounded-full w-fit">
             {/*<Button
               size="sm"
               className="h-6 text-sm px-2 font-normal cursor-pointer border"
@@ -133,7 +133,6 @@ export function Projects() {
               className="h-6 text-sm px-2 font-normal cursor-pointer border"
             >
               Pinned
-              <Pin className="size-3" />
             </Button>
             <Button
               size="sm"
@@ -143,13 +142,14 @@ export function Projects() {
             >
               <Link href={siteConfig.github} target="_blank">
                 View All
+                <ExternalLink className="size-3" />
               </Link>
             </Button>
           </div>
         </div>
 
         {loading ? (
-          <div className="grid gap-px overflow-hidden sm:grid-cols-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-xl border border-border">
             {Array.from({ length: 4 }).map((_, index) => (
               <div key={index} className="bg-background p-5 space-y-3">
                 <Skeleton className="w-1/2 h-4 bg-white/5" />
@@ -173,7 +173,7 @@ export function Projects() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
-            className="grid gap-2 overflow-hidden sm:grid-cols-2"
+            className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-xl border border-border"
           >
             {displayedProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
