@@ -15,7 +15,7 @@ export function Hero() {
   const [copied, setCopied] = useState(false);
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText(siteConfig.email);
+    navigator.clipboard.writeText(siteConfig.contact.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
     toast.success("Email copied to clipboard!");
@@ -41,29 +41,29 @@ export function Hero() {
     >
       <div className="space-y-6">
         <p className="text-[14.5px] text-foreground/70 leading-relaxed font-normal">
-          I'm a software engineer who enjoys building things. I've worked with{" "}
-          <HoverText text="startups">Pre-Seed, Seed, and Series A.</HoverText>,{" "}
-          <Underline>mncs</Underline> built products for{" "}
+          I&apos;m a software engineer who enjoys building things. I&apos;ve
+          worked with{" "}
+          <HoverText text="startups">Pre-Seed, Seed, and Series A.</HoverText>{" "}
+          and <Underline>mncs</Underline> built products for{" "}
           <HoverText text="clients">i also do freelancing.</HoverText>, and
           spent years creating my own projects. Most of my time is spent
           building products, contributing to open source, and experimenting with
-          new ideas. I've built{" "}
+          new ideas. I&apos;ve built{" "}
           <HoverText text="60+ projects">
             More than 64+ open source projects, 200+ closed source projects.
           </HoverText>{" "}
           ranging from AI tools and SaaS products to developer tools and
           automation software, and my open-source work has earned{" "}
-          <Link href={siteConfig.github} target="_blank">
+          <Link href={siteConfig.links.github} target="_blank">
             <Underline>hundreds of GitHub stars</Underline>.
           </Link>
         </p>
 
         <p className="text-[14.5px] text-foreground/70 leading-relaxed font-normal">
-          When I'm not working, I'm usually shipping another side project or
-          contributing to projects I use myself.
+          When I&apos;m not working, I&apos;m usually shipping another side
+          project or contributing to projects I use myself.
         </p>
 
-        {/* Buttons */}
         <div className="flex flex-wrap items-center gap-3 pt-2">
           <Button variant="default" asChild>
             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -88,7 +88,6 @@ export function Hero() {
           </Button>
         </div>
 
-        {/* GitHub Contribution Graph */}
         <ScrollArea className="py-4 -mb-6">
           <Link
             href="https://github.com/r2hu1"

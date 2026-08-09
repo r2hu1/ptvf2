@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import { siteConfig } from "@/lib/constants";
-import { Tooltip, TooltipContent, TooltipTrigger } from "./ui/tooltip";
 import { Button } from "./ui/button";
 import { usePreloader } from "./preloader-context";
 import {
@@ -20,15 +19,14 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { FaEnvelope } from "react-icons/fa";
-import ThemeTogglerButtonDemo from "./theme-changer";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
-  { icon: FaGithub, url: siteConfig.github, label: "GitHub" },
-  { icon: FaLinkedin, url: siteConfig.linkedin, label: "LinkedIn" },
-  { icon: FaTwitter, url: siteConfig.twitter, label: "Twitter" },
-  { icon: FaDiscord, url: siteConfig.discord, label: "Discord" },
-  { icon: FaInstagram, url: siteConfig.instagram, label: "Instagram" },
-  { icon: FaEnvelope, url: `mailto:${siteConfig.email}`, label: "Email" },
+  { icon: FaGithub, url: siteConfig.links.github, label: "GitHub" },
+  { icon: FaLinkedin, url: siteConfig.links.linkedin, label: "LinkedIn" },
+  { icon: FaTwitter, url: siteConfig.links.twitter, label: "Twitter" },
+  { icon: FaDiscord, url: siteConfig.links.discord, label: "Discord" },
+  { icon: FaInstagram, url: siteConfig.links.instagram, label: "Instagram" },
+  { icon: FaEnvelope, url: `mailto:${siteConfig.contact.email}`, label: "Email" },
 ];
 
 export function Header() {
@@ -44,15 +42,14 @@ export function Header() {
       <div className="flex gap-4 flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="relative">
-            {/* Placeholder to hold space before avatar arrives */}
+
             <div className="size-11" />
 
-            {/* Avatar only mounts after preloader is done so layoutId can animate in */}
             {done && (
               <motion.img
                 layoutId="avatar"
-                src="https://github.com/r2hu1.png"
-                alt="Rahul Rajput"
+                src={siteConfig.avatarUrl}
+                alt={siteConfig.name}
                 className="absolute inset-0 size-11 rounded-full! border border-background/10"
                 transition={{ type: "spring", stiffness: 180, damping: 22 }}
               />
@@ -68,7 +65,7 @@ export function Header() {
               {siteConfig.name}
             </h1>
             <p className="text-xs text-foreground/50 font-medium">
-              Software Engineer
+              {siteConfig.jobTitle}
             </p>
           </div>
         </div>

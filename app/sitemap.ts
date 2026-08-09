@@ -1,7 +1,8 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rahul.eu.org';
+  const baseUrl = siteConfig.url;
   const currentDate = new Date();
 
   return [
@@ -17,6 +18,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
     },
-    // Add more pages as your site grows
   ];
 }

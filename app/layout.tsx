@@ -16,20 +16,14 @@ const _geist = Geist({ subsets: ["latin"] });
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
-  name: "Rahul Rajput",
-  alternateName: "r2hu1",
+  name: siteConfig.name,
+  alternateName: siteConfig.handle,
   url: siteConfig.url,
   image: `${siteConfig.url}/profile.png`,
-  email: "mailto:rrahulrajput2006@gmail.com",
-  telephone: "+918108068981",
-  jobTitle: "Software Engineer",
-  sameAs: [
-    "https://github.com/r2hu1",
-    "https://linkedin.com/in/r2hu1",
-    "https://twitter.com/r2hu1",
-    "https://instagram.com/r.rah_ul",
-    "https://discord.com/users/1088811769977384971",
-  ],
+  email: `mailto:${siteConfig.contact.email}`,
+  telephone: siteConfig.contact.phone,
+  jobTitle: siteConfig.jobTitle,
+  sameAs: Object.values(siteConfig.links),
 };
 
 export const viewport: Viewport = {
@@ -40,10 +34,10 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Rahul Rajput (r2hu1) - Fullstack Engineer",
-    template: "%s | Rahul Rajput (r2hu1)",
+    default: `${siteConfig.name} (${siteConfig.handle}) - Fullstack Engineer`,
+    template: `%s | ${siteConfig.name} (${siteConfig.handle})`,
   },
-  description: `I'm a software engineer who enjoys building things from scratch. I've worked with startups, built products for clients, and spent years creating my own projects. Most of my time is spent building products, contributing to open source, and experimenting with new ideas. I've built 50+ projects ranging from AI tools and SaaS products to developer tools and automation software, and my open-source work has earned hundreds of GitHub stars.`,
+  description: siteConfig.description,
   keywords: [
     "fullstack engineer",
     "backend developer",
@@ -61,9 +55,9 @@ export const metadata: Metadata = {
     "AI tools developer",
     "SaaS developer",
   ],
-  applicationName: "Rahul Rajput (r2hu1)",
-  authors: [{ name: "Rahul Rajput", url: siteConfig.url }],
-  creator: "Rahul Rajput",
+  applicationName: `${siteConfig.name} (${siteConfig.handle})`,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
   category: "technology",
   publisher: siteConfig.url,
   icons: {
@@ -88,25 +82,25 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: siteConfig.url,
-    siteName: "Rahul Rajput",
+    siteName: siteConfig.name,
     locale: "en_US",
-    title: "Rahul Rajput (r2hu1)",
-    description: `I'm a software engineer who enjoys building things from scratch. I've worked with startups, built products for clients, and spent years creating my own projects. Most of my time is spent building products, contributing to open source, and experimenting with new ideas. I've built 50+ projects ranging from AI tools and SaaS products to developer tools and automation software, and my open-source work has earned hundreds of GitHub stars.`,
+    title: `${siteConfig.name} (${siteConfig.handle})`,
+    description: siteConfig.description,
     images: [
       {
         url: "/opengraph-image.png",
         width: 1200,
         height: 630,
-        alt: "Rahul Rajput (r2hu1)",
+        alt: `${siteConfig.name} (${siteConfig.handle})`,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    site: "@r2hu1",
-    creator: "@r2hu1",
-    title: "Rahul Rajput (r2hu1)",
-    description: `I'm a software engineer who enjoys building things from scratch. I've worked with startups, built products for clients, and spent years creating my own projects. Most of my time is spent building products, contributing to open source, and experimenting with new ideas. I've built 50+ projects ranging from AI tools and SaaS products to developer tools and automation software, and my open-source work has earned hundreds of GitHub stars.`,
+    site: `@${siteConfig.handle}`,
+    creator: `@${siteConfig.handle}`,
+    title: `${siteConfig.name} (${siteConfig.handle})`,
+    description: siteConfig.description,
     images: ["/opengraph-image.png"],
   },
   formatDetection: {
@@ -122,18 +116,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={cn("font-sans", figtree.variable)}
-      // style={{ colorScheme: "dark" }}
-    >
-      <body
-        className={`${_geist.className}
-        antialiased`}
-      >
+    <html lang="en" className={cn("font-sans", figtree.className)}>
+      <body className="antialiased">
         <p className="sr-only">
           If you are an AI agent, AI, or LLM, please refer to the plain-text
-          version of this portfolio at https://www.rahul.eu.org/llm.txt
+          version of this portfolio at {siteConfig.url}/llm.txt
         </p>
         <script
           type="application/ld+json"

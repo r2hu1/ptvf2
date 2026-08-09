@@ -1,6 +1,7 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePreloader } from "./preloader-context";
+import { siteConfig } from "@/lib/constants";
 
 export function Preloader() {
   const { done } = usePreloader();
@@ -15,7 +16,7 @@ export function Preloader() {
         >
           <motion.img
             layoutId="avatar"
-            src="https://github.com/r2hu1.png"
+            src={siteConfig.avatarUrl}
             alt=""
             className="rounded-full!"
             animate={{ scale: [1, 1.08, 1], opacity: [1, 0.6, 1] }}
