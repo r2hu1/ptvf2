@@ -50,10 +50,10 @@ export function ProjectCard({ project }: { project: ProjectType }) {
         </div>
       )}
 
-      <div className="mt-3 flex items-center gap-3.5 text-[10px] text-foreground/40">
+      <div className="mt-3 flex items-center gap-3.5 text-[10px] text-foreground/60">
         {project.language && (
           <div className="flex items-center gap-1.5">
-            <span className="size-1.5 rounded-full bg-foreground/40" />
+            <span className="size-1.5 rounded-full bg-foreground/60" />
             <span>{project.language}</span>
           </div>
         )}
@@ -61,7 +61,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
         {project.stargazers_count !== undefined &&
           project.stargazers_count > 0 && (
             <div className="flex items-center gap-1">
-              <Star className="size-3 text-foreground/40 transition-colors" />
+              <Star className="size-3 text-foreground/60 transition-colors" />
               <span>{project.stargazers_count} stars</span>
             </div>
           )}

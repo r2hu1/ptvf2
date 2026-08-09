@@ -94,7 +94,9 @@ export function Hero() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <HeatmapCalendar className="-ml-10!" legend={false} data={data} />
+            {data.length > 0 && (
+              <HeatmapCalendar className="-ml-10!" legend={false} data={data} />
+            )}
           </Link>
           <ScrollBar orientation="horizontal" />
         </ScrollArea>

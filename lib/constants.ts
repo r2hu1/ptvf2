@@ -5,7 +5,7 @@ export const siteConfig = {
   url: "https://rahul.eu.org",
   ogImage: "/opengraph-image.png",
   githubUsername: "r2hu1",
-  avatarUrl: "https://github.com/r2hu1.png",
+  avatarUrl: "/avatar.webp",
   description:
     "I'm a software engineer who enjoys building things from scratch. I've worked with startups, built products for clients, and spent years creating my own projects.",
   links: {

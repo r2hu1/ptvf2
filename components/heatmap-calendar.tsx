@@ -1,12 +1,6 @@
 "use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import * as React from "react";
 
@@ -171,7 +165,7 @@ function formatMonth(d: Date, fmt: "short" | "long" | "numeric") {
     const yy = String(d.getFullYear()).slice(-2);
     return `${d.getMonth() + 1}/${yy}`;
   }
-  return d.toLocaleDateString(undefined, { month: fmt });
+  return d.toLocaleDateString("en-US", { month: fmt });
 }
 
 function weekdayLabelForIndex(index: number, weekStartsOn: 0 | 1) {
@@ -180,7 +174,9 @@ function weekdayLabelForIndex(index: number, weekStartsOn: 0 | 1) {
   const actualDay = (weekStartsOn + index) % 7;
   // stable reference week (UTC)
   const base = new Date(Date.UTC(2024, 0, 7 + actualDay));
-  return base.toLocaleDateString(undefined, { weekday: "short" }).toUpperCase();
+  return base
+    .toLocaleDateString("en-US", { weekday: "short", timeZone: "UTC" })
+    .toUpperCase();
 }
 
 /* ---------------- component ---------------- */
@@ -199,7 +195,6 @@ export function HeatmapCalendar({
   legend = true,
   axisLabels = true,
   renderLegend,
-  renderTooltip,
   className,
 }: HeatmapCalendarProps) {
   // Default classes are semantic => good in light/dark
@@ -270,7 +265,8 @@ export function HeatmapCalendar({
           level: clampLevel(lvl, levelCount),
           disabled: !inRange,
           meta,
-          label: date.toLocaleDateString(undefined, {
+          label: date.toLocaleDateString("en-US", {
+            timeZone: "UTC",
             year: "numeric",
             month: "short",
             day: "numeric",
@@ -371,20 +367,6 @@ export function HeatmapCalendar({
 
   /* ---------------- tooltip ---------------- */
 
-  const tooltipNode = (cell: HeatmapCell) => {
-    if (renderTooltip) return renderTooltip(cell);
-    if (cell.disabled) return "Outside range";
-    const unit = cell.value === 1 ? "contribution" : "contributions";
-    return (
-      <div className="text-sm">
-        <div className="font-medium">
-          {cell.value} {unit}
-        </div>
-        <div className="text-muted-foreground">{cell.label}</div>
-      </div>
-    );
-  };
-
   const weekdayLabelWidth = showAxis && showWeekdays ? 44 : 0;
 
   return (
@@ -444,24 +426,16 @@ export function HeatmapCalendar({
             ) : null}
 
             {/* Heatmap grid */}
-            <div
-              className="flex"
-              style={{ gap: `${cellGap}px` }}
-              role="grid"
-              aria-label="Heatmap calendar"
-            >
+            <div className="flex" style={{ gap: `${cellGap}px` }}>
               {columns.map((col, i) => (
                 <div
                   key={i}
                   className="flex flex-col"
                   style={{ gap: `${cellGap}px` }}
-                  role="rowgroup"
                 >
                   {col.map((cell) => {
                     const cls = levels[clampLevel(cell.level, levels.length)];
                     return (
-                      // <Tooltip key={`${cell.key}-${i}`}>
-                      // {/*<TooltipTrigger asChild>*/}
                       <button
                         key={`${cell.key}-${i}`}
                         type="button"
@@ -483,13 +457,7 @@ export function HeatmapCalendar({
                             ? "Outside range"
                             : `${cell.label}: ${cell.value}`
                         }
-                        role="gridcell"
                       />
-                      // {/*</TooltipTrigger>*/}
-                      //   {/*<TooltipContent side="top">
-                      //     {tooltipNode(cell)}
-                      //   </TooltipContent>
-                      // </Tooltip>*/}
                     );
                   })}
                 </div>

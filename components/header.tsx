@@ -10,7 +10,6 @@ import {
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import { siteConfig } from "@/lib/constants";
-import { Button } from "./ui/button";
 import { usePreloader } from "./preloader-context";
 import {
   DropdownMenu,
@@ -64,7 +63,7 @@ export function Header() {
             <h1 className="text-sm font-semibold tracking-tight text-foreground">
               {siteConfig.name}
             </h1>
-            <p className="text-xs text-foreground/50 font-medium">
+            <p className="text-xs text-foreground/70 font-medium">
               {siteConfig.jobTitle}
             </p>
           </div>
@@ -72,18 +71,21 @@ export function Header() {
 
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <div className="flex items-center">
+            <button
+              type="button"
+              aria-label="Open social links"
+              className="flex items-center cursor-pointer"
+            >
               {socials.slice(0, 3).map((social) => (
-                <Button
-                  size="icon"
-                  variant="secondary"
-                  className="rounded-full cursor-pointer -ml-2"
+                <span
                   key={social.label}
+                  aria-hidden="true"
+                  className="flex size-9 -ml-2 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-all cursor-pointer first:ml-0 hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] [&_svg]:size-4"
                 >
                   <social.icon />
-                </Button>
+                </span>
               ))}
-            </div>
+            </button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="min-w-50">
             {socials.map((e) => (

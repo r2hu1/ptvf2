@@ -92,7 +92,7 @@ export default function WorkingExperience() {
       >
         <div>
           <h2 className="text-sm text-foreground tracking-wider">Experience</h2>
-          <p className="text-xs text-foreground/40 mt-1">
+          <p className="text-xs text-foreground/60 mt-1">
             Professional timeline and work achievements
           </p>
         </div>
@@ -137,17 +137,17 @@ export default function WorkingExperience() {
                         <h3 className="text-sm font-medium text-foreground transition-colors group-hover:text-foreground">
                           {role.company}
                         </h3>
-                        <p className="text-xs text-foreground/50 font-normal mt-0.5">
+                        <p className="text-xs text-foreground/70 font-normal mt-0.5">
                           {role.title}
                         </p>
                       </div>
                     </div>
 
                     <div className="flex flex-col items-end gap-1 shrink-0 text-right">
-                      <span className="text-[10px] text-foreground/40 flex items-center gap-1">
+                      <span className="text-[10px] text-foreground/60 flex items-center gap-1">
                         <Calendar className="size-2.5" /> {role.period}
                       </span>
-                      <span className="text-[9px] bg-transparent text-foreground/50 px-1.5 py-0.5 rounded border border-border">
+                      <span className="text-[9px] bg-transparent text-foreground/70 px-1.5 py-0.5 rounded border border-border">
                         {role.type}, {role.location}
                       </span>
                     </div>

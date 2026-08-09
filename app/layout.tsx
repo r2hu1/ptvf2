@@ -61,8 +61,8 @@ export const metadata: Metadata = {
   category: "technology",
   publisher: siteConfig.url,
   icons: {
-    icon: "/profile.png",
-    apple: "/profile.png",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
   robots: {
     index: true,
