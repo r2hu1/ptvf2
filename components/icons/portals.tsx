@@ -6,12 +6,11 @@ interface IconProps {
 
 export function PortalsIcon({ className }: IconProps) {
   return (
-    <a
+    <div
       className={cn(
         "flex size-10 items-center justify-center rounded-md border grayscale group-hover:grayscale-0",
         className,
       )}
-      href="/"
     >
       <svg
         className="size-7 shrink-0"
@@ -112,6 +111,6 @@ export function PortalsIcon({ className }: IconProps) {
           </linearGradient>
         </defs>
       </svg>
-    </a>
+    </div>
   );
 }

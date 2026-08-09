@@ -72,18 +72,6 @@ const experienceData: RoleDetails[] = [
     ],
     icon: PortalsIcon,
   },
-  // {
-  //   company: "GitHub & Open Source",
-  //   title: "Open-Source Builder",
-  //   location: "Global",
-  //   type: "Remote",
-  //   period: "2022 – Present",
-  //   bullets: [
-  //     "Developed more than 50 full-stack projects.",
-  //     "Accumulated more than 550+ stars across public repositories.",
-  //     "Contributed to various community repositories and built developer-friendly command-line tools.",
-  //   ],
-  // },
 ];
 
 export default function WorkingExperience() {
@@ -117,7 +105,7 @@ export default function WorkingExperience() {
                 key={`${role.company}-${role.period}`}
                 className="relative group"
               >
-                {/* Timeline node */}
+
                 <div
                   className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-foreground/10 bg-background transition-all duration-300 flex items-center justify-center ${
                     isExpanded
