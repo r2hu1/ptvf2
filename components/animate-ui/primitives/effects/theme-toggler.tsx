@@ -73,6 +73,7 @@ function ThemeToggler({
       theme === preview.effective &&
       resolvedTheme === preview.resolved
     ) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- vendored theme preview sync
       setPreview(null);
     }
   }, [theme, resolvedTheme, preview]);
