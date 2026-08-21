@@ -18,6 +18,9 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { FaEnvelope } from "react-icons/fa";
+import { Separator } from "./ui/separator";
+import { Sun } from "lucide-react";
+import { PullCord } from "./pull-cord";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
   { icon: FaGithub, url: siteConfig.links.github, label: "GitHub" },
@@ -25,7 +28,11 @@ const socials: { icon: IconType; url: string; label: string }[] = [
   { icon: FaTwitter, url: siteConfig.links.twitter, label: "Twitter" },
   { icon: FaDiscord, url: siteConfig.links.discord, label: "Discord" },
   { icon: FaInstagram, url: siteConfig.links.instagram, label: "Instagram" },
-  { icon: FaEnvelope, url: `mailto:${siteConfig.contact.email}`, label: "Email" },
+  {
+    icon: FaEnvelope,
+    url: `mailto:${siteConfig.contact.email}`,
+    label: "Email",
+  },
 ];
 
 export function Header() {
@@ -41,7 +48,6 @@ export function Header() {
       <div className="flex gap-4 flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="relative">
-
             <div className="size-11" />
 
             {done && (
@@ -69,35 +75,37 @@ export function Header() {
           </div>
         </div>
 
-        <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <button
-              type="button"
-              aria-label="Open social links"
-              className="flex items-center cursor-pointer"
-            >
-              {socials.slice(0, 3).map((social) => (
-                <span
-                  key={social.label}
-                  aria-hidden="true"
-                  className="flex size-9 -ml-2 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-all cursor-pointer first:ml-0 hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] [&_svg]:size-4"
-                >
-                  <social.icon />
-                </span>
+        <div className="flex items-center gap-2">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <button
+                type="button"
+                aria-label="Open social links"
+                className="flex items-center cursor-pointer"
+              >
+                {socials.slice(0, 3).map((social) => (
+                  <span
+                    key={social.label}
+                    aria-hidden="true"
+                    className="flex size-9 -ml-2 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-all cursor-pointer first:ml-0 hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] [&_svg]:size-4"
+                  >
+                    <social.icon />
+                  </span>
+                ))}
+              </button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="min-w-50">
+              {socials.map((e) => (
+                <Link href={e.url} target="_blank" key={e.label}>
+                  <DropdownMenuItem className="cursor-pointer">
+                    <e.icon />
+                    {e.label}
+                  </DropdownMenuItem>
+                </Link>
               ))}
-            </button>
-          </DropdownMenuTrigger>
-          <DropdownMenuContent align="end" className="min-w-50">
-            {socials.map((e) => (
-              <Link href={e.url} target="_blank" key={e.label}>
-                <DropdownMenuItem className="cursor-pointer">
-                  <e.icon />
-                  {e.label}
-                </DropdownMenuItem>
-              </Link>
-            ))}
-          </DropdownMenuContent>
-        </DropdownMenu>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
     </motion.header>
   );

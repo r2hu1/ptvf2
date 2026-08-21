@@ -1,3 +1,4 @@
+import { PullCord } from "./pull-cord";
 import ThemeToggler from "./theme-changer";
 
 export function Footer() {
@@ -9,6 +10,7 @@ export function Footer() {
         direction="rtl"
         system={false}
       />
+      <PullCord />
     </footer>
   );
 }
