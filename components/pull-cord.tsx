@@ -16,7 +16,7 @@ import { cn } from "@/lib/utils";
 // Geometry (SVG user units == px)
 const W = 72; // svg width
 const ANCHOR_X = W / 2; // where the cord attaches at the top
-const REST = 58; // resting cord length
+const REST = 108; // resting cord length
 const MAX_PULL = 130; // how far the bead can be dragged down
 const MAX_SWAY = 34; // horizontal give while dragging
 const THRESHOLD = 66; // pull past this (px) to flip the theme
@@ -60,7 +60,7 @@ export function PullCord({ className }: PullCordProps) {
       const ctrlX = ANCHOR_X + x * 0.55;
       const ctrlY = by * 0.55;
       return `M ${ANCHOR_X} 0 Q ${ctrlX} ${ctrlY} ${bx} ${by}`;
-    }
+    },
   );
   const beadCx = useTransform(springX, (x) => ANCHOR_X + x);
   const beadCy = useTransform(springY, (y) => REST + y);
@@ -92,7 +92,7 @@ export function PullCord({ className }: PullCordProps) {
     transition.ready.then(() => {
       const endRadius = Math.hypot(
         Math.max(ox, window.innerWidth - ox),
-        Math.max(oy, window.innerHeight - oy)
+        Math.max(oy, window.innerHeight - oy),
       );
       root.animate(
         {
@@ -105,7 +105,7 @@ export function PullCord({ className }: PullCordProps) {
           duration: 550,
           easing: "ease-in-out",
           pseudoElement: "::view-transition-new(root)",
-        }
+        },
       );
     });
     // Release the lock only once the whole transition is done.
@@ -157,7 +157,7 @@ export function PullCord({ className }: PullCordProps) {
     <div
       className={cn(
         "pointer-events-none select-none",
-        className || "fixed right-6 top-0 z-[60] block lg:right-8"
+        className || "fixed -right-6 sm:right-6 top-0 z-10 block lg:right-12",
       )}
       style={{ width: W, height: H }}
     >
