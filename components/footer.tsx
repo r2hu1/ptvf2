@@ -16,7 +16,7 @@ export function Footer() {
   };
 
   return (
-    <div className="p-6 sm:p-8 py-0! -mt-5">
+    <div id="footer" className="p-6 sm:p-8 py-0! -mt-5">
       <footer className="flex items-center bg-secondary justify-between gap-4 rounded-xl border p-4">
         <div className="min-w-0">
           <h1 className="text-sm font-medium">Social Hub</h1>
@@ -51,7 +51,7 @@ export function Footer() {
         system={false}
       />
 
-      <PullCord />
+      {/*<PullCord />*/}
     </div>
   );
 }

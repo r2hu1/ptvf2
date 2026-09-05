@@ -1,12 +1,16 @@
 "use client";
-import { motion } from "framer-motion";
+
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 import {
   FaGithub,
   FaLinkedin,
   FaTwitter,
   FaDiscord,
   FaInstagram,
+  FaEnvelope,
 } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import { siteConfig } from "@/lib/constants";
@@ -17,10 +21,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
-import { FaEnvelope } from "react-icons/fa";
-import { Separator } from "./ui/separator";
-import { Sun } from "lucide-react";
-import { PullCord } from "./pull-cord";
 
 const socials: { icon: IconType; url: string; label: string }[] = [
   { icon: FaGithub, url: siteConfig.links.github, label: "GitHub" },
@@ -37,13 +37,39 @@ const socials: { icon: IconType; url: string; label: string }[] = [
 
 export function Header() {
   const { done } = usePreloader();
+  const { resolvedTheme, setTheme } = useTheme();
+  const [isHovered, setIsHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (
+        e.key.toLowerCase() === "d" &&
+        !["INPUT", "TEXTAREA", "SELECT"].includes(
+          (e.target as HTMLElement)?.tagName,
+        ) &&
+        !(e.target as HTMLElement)?.isContentEditable
+      ) {
+        setTheme(resolvedTheme === "dark" ? "light" : "dark");
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [resolvedTheme, setTheme]);
+
+  const targetTheme = resolvedTheme === "dark" ? "light" : "dark";
 
   return (
     <motion.header
+      id="header"
       initial={{ opacity: 0 }}
       animate={done ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="p-6 sm:p-8 py-0! bg-background"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className="p-6 sm:p-8 py-0! bg-background cursor-pointer"
     >
       <div className="flex gap-4 flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">
@@ -69,8 +95,32 @@ export function Header() {
             <h1 className="text-sm font-semibold tracking-tight text-foreground">
               {siteConfig.name}
             </h1>
-            <p className="text-xs text-foreground/70 font-medium">
-              {siteConfig.jobTitle}
+            <p className="text-xs text-foreground/70 font-medium h-5 flex items-center">
+              <AnimatePresence mode="wait">
+                {isHovered && mounted ? (
+                  <motion.span
+                    key="theme-hint"
+                    initial={{ opacity: 0, y: 2 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -2 }}
+                    transition={{ duration: 0.15 }}
+                    className="text-foreground/80 font-normal"
+                  >
+                    press <span className="bg-muted p-px px-1 rounded">d</span>{" "}
+                    for {targetTheme} mode
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="job-title"
+                    initial={{ opacity: 0, y: 2 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -2 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    {siteConfig.jobTitle}
+                  </motion.span>
+                )}
+              </AnimatePresence>
             </p>
           </div>
         </div>

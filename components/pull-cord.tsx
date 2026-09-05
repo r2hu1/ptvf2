@@ -157,7 +157,7 @@ export function PullCord({ className }: PullCordProps) {
     <div
       className={cn(
         "pointer-events-none select-none hidden! md:flex!",
-        className || "fixed -right-6 sm:right-6 top-0 z-10 block lg:right-12",
+        className || "fixed -left-6 sm:left-6 top-0 z-10 block lg:left-12",
       )}
       style={{ width: W, height: H }}
     >
