@@ -37,27 +37,8 @@ const socials: { icon: IconType; url: string; label: string }[] = [
 
 export function Header() {
   const { done } = usePreloader();
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme } = useTheme();
   const [isHovered, setIsHovered] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => setMounted(true), []);
-
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (
-        e.key.toLowerCase() === "d" &&
-        !["INPUT", "TEXTAREA", "SELECT"].includes(
-          (e.target as HTMLElement)?.tagName,
-        ) &&
-        !(e.target as HTMLElement)?.isContentEditable
-      ) {
-        setTheme(resolvedTheme === "dark" ? "light" : "dark");
-      }
-    };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [resolvedTheme, setTheme]);
 
   const targetTheme = resolvedTheme === "dark" ? "light" : "dark";
 
@@ -97,7 +78,7 @@ export function Header() {
             </h1>
             <p className="text-xs text-foreground/70 font-medium h-5 flex items-center">
               <AnimatePresence mode="wait">
-                {isHovered && mounted ? (
+                {isHovered ? (
                   <motion.span
                     key="theme-hint"
                     initial={{ opacity: 0, y: 2 }}
@@ -131,13 +112,13 @@ export function Header() {
               <button
                 type="button"
                 aria-label="Open social links"
-                className="flex items-center cursor-pointer"
+                className="flex items-center cursor-pointer outline-0!"
               >
                 {socials.slice(0, 3).map((social) => (
                   <span
                     key={social.label}
                     aria-hidden="true"
-                    className="flex size-9 -ml-2 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-all cursor-pointer first:ml-0 hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] [&_svg]:size-4"
+                    className="flex size-8 -ml-2 items-center justify-center rounded-full bg-secondary text-secondary-foreground transition-all cursor-pointer first:ml-0 hover:bg-[color-mix(in_oklch,var(--secondary),var(--foreground)_5%)] [&_svg]:size-4"
                   >
                     <social.icon />
                   </span>

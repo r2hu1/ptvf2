@@ -63,7 +63,7 @@ export function SectionNavigation() {
   return (
     <aside
       aria-label="Page navigation"
-      className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-end gap-2 select-none"
+      className="fixed right-4 sm:right-6 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-end gap-3 select-none"
     >
       {sections.map((section) => {
         const isActive = activeSection === section.id;
