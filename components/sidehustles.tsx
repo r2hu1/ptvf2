@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 export interface SideHustleApp {
   id: string;
@@ -48,6 +50,46 @@ const sideHustlesData: SideHustleApp[] = [
 ];
 
 export function SideHustles() {
+  const [activeStackIndex, setActiveStackIndex] = useState<number | null>(null);
+  const cardRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerWidth >= 640) {
+        setActiveStackIndex(null);
+        return;
+      }
+
+      const fontSize =
+        parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+      let highestStickyIndex: number | null = null;
+
+      cardRefs.current.forEach((el, i) => {
+        if (!el) return;
+        const rect = el.getBoundingClientRect();
+        const expectedStickyTop = (4.5 + i * 1.5) * fontSize;
+
+        if (
+          rect.top <= expectedStickyTop + 12 &&
+          rect.bottom > expectedStickyTop + 20
+        ) {
+          highestStickyIndex = i;
+        }
+      });
+
+      setActiveStackIndex(highestStickyIndex);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
   return (
     <section id="sidehustles" className="p-6 sm:p-8 bg-background py-0!">
       <motion.div
@@ -72,46 +114,62 @@ export function SideHustles() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 sm:grid-cols-2 overflow-hidden rounded-xl border border-border"
+          className="flex flex-col gap-4 sm:grid sm:grid-cols-2 sm:gap-0 sm:rounded-xl sm:border sm:border-border sm:overflow-hidden"
         >
-          {sideHustlesData.map((app) => (
-            <motion.a
-              key={app.id}
-              href={app.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative block overflow-hidden bg-background transition-colors duration-200 hover:bg-secondary/50
-                border-b border-border
-                sm:[&:nth-child(odd)]:border-r
-                sm:[&:nth-last-child(-n+2)]:border-b-0
-                [&:last-child]:border-b-0"
-            >
-              {/* Edge-to-edge Thumbnail Image */}
-              <div className="relative aspect-video w-full overflow-hidden bg-secondary/20 border-b border-border/40">
-                <Image
-                  src={app.image}
-                  alt={app.name}
-                  fill
-                  // sizes="(max-width: 640px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
+          {sideHustlesData.map((app, index) => {
+            const isTopStacked = activeStackIndex === index;
 
-              {/* Card Content */}
-              <div className="p-5">
-                <div className="flex items-center justify-between gap-3">
-                  <h3 className="text-sm font-medium text-foreground">
-                    {app.name}
-                  </h3>
-                  <ArrowUpRight className="size-3.5 text-foreground/30 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
+            return (
+              <motion.a
+                key={app.id}
+                ref={(el) => {
+                  cardRefs.current[index] = el;
+                }}
+                href={app.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  top: `calc(4.5rem + ${index * 1.5}rem)`,
+                }}
+                className="group relative block overflow-hidden bg-background transition-colors duration-200 hover:bg-secondary/50
+                  sticky sm:static
+                  rounded-xl sm:rounded-none
+                  border border-border sm:border-0
+                  sm:border-b sm:border-border
+                  sm:[&:nth-child(odd)]:border-r
+                  sm:[&:nth-last-child(-n+2)]:border-b-0
+                  sm:[&:last-child]:border-b-0"
+              >
+                {/* Edge-to-edge Thumbnail Image */}
+                <div className="relative aspect-video w-full overflow-hidden bg-secondary/20 border-b border-border/40">
+                  <Image
+                    src={app.image}
+                    alt={app.name}
+                    fill
+                    // sizes="(max-width: 640px) 100vw, 50vw"
+                    className={cn(
+                      "object-cover transition-all duration-300 group-hover:scale-105 group-hover:grayscale-0",
+                      isTopStacked ? "grayscale-0!" : "grayscale"
+                    )}
+                  />
                 </div>
 
-                <p className="mt-1.5 line-clamp-2 text-xs font-normal leading-relaxed text-foreground/60">
-                  {app.description}
-                </p>
-              </div>
-            </motion.a>
-          ))}
+                {/* Card Content */}
+                <div className="p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <h3 className="text-sm font-medium text-foreground">
+                      {app.name}
+                    </h3>
+                    <ArrowUpRight className="size-3.5 text-foreground/30 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
+                  </div>
+
+                  <p className="mt-1.5 line-clamp-2 text-xs font-normal leading-relaxed text-foreground/60">
+                    {app.description}
+                  </p>
+                </div>
+              </motion.a>
+            );
+          })}
         </motion.div>
       </motion.div>
     </section>
