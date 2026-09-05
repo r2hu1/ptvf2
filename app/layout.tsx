@@ -19,7 +19,7 @@ const jsonLd = {
   name: siteConfig.name,
   alternateName: siteConfig.handle,
   url: siteConfig.url,
-  image: `${siteConfig.url}/profile.png`,
+  image: `${siteConfig.url}/profile.webp`,
   email: `mailto:${siteConfig.contact.email}`,
   telephone: siteConfig.contact.phone,
   jobTitle: siteConfig.jobTitle,
@@ -61,8 +61,8 @@ export const metadata: Metadata = {
   category: "technology",
   publisher: siteConfig.url,
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
+    icon: "/favicon.webp",
+    apple: "/favicon.webp",
   },
   robots: {
     index: true,
@@ -88,7 +88,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: [
       {
-        url: "/opengraph-image.png",
+        url: "/opengraph-image.webp",
         width: 1200,
         height: 630,
         alt: `${siteConfig.name} (${siteConfig.handle})`,
@@ -101,7 +101,7 @@ export const metadata: Metadata = {
     creator: `@${siteConfig.handle}`,
     title: `${siteConfig.name} (${siteConfig.handle})`,
     description: siteConfig.description,
-    images: ["/opengraph-image.png"],
+    images: ["/opengraph-image.webp"],
   },
   formatDetection: {
     telephone: true,

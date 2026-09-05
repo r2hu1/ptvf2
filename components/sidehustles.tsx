@@ -19,7 +19,7 @@ const sideHustlesData: SideHustleApp[] = [
     description:
       "One payment link to accept cards, digital wallets, and crypto payments from anywhere in the world.",
     url: "https://qupay.me",
-    image: "/qpay.png",
+    image: "/qpay.webp",
   },
   {
     id: "meero",
@@ -27,7 +27,7 @@ const sideHustlesData: SideHustleApp[] = [
     description:
       "AI app builder that turns prompts into full-stack web apps, then monitors and improves them after launch.",
     url: "https://meero.im",
-    image: "/meero.png",
+    image: "/meero.webp",
   },
   {
     id: "roster-pro",
@@ -35,7 +35,7 @@ const sideHustlesData: SideHustleApp[] = [
     description:
       "Restaurant operating system for QR ordering, table management, billing, kitchen display, and analytics.",
     url: "https://rosterpro.in",
-    image: "/roster-pro.png",
+    image: "/roster-pro.webp",
   },
   {
     id: "gluer-space",
@@ -43,7 +43,7 @@ const sideHustlesData: SideHustleApp[] = [
     description:
       "All-in-one profile for managing links, scheduling meetings, and accepting free or paid bookings.",
     url: "https://gluer.space",
-    image: "/gluer-space.png",
+    image: "/gluer-space.webp",
   },
 ];
 

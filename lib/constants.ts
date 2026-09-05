@@ -3,7 +3,7 @@ export const siteConfig = {
   handle: "r2hu1",
   jobTitle: "Software Engineer",
   url: "https://rahul.eu.org",
-  ogImage: "/opengraph-image.png",
+  ogImage: "/opengraph-image.webp",
   githubUsername: "r2hu1",
   avatarUrl: "/avatar.webp",
   description:
