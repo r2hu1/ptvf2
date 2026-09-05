@@ -62,22 +62,21 @@ export function SideHustles() {
 
       const fontSize =
         parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
-      let highestStickyIndex: number | null = null;
+      let activeIdx: number | null = null;
 
-      cardRefs.current.forEach((el, i) => {
-        if (!el) return;
+      for (let i = sideHustlesData.length - 1; i >= 0; i--) {
+        const el = cardRefs.current[i];
+        if (!el) continue;
         const rect = el.getBoundingClientRect();
         const expectedStickyTop = (4.5 + i * 1.5) * fontSize;
 
-        if (
-          rect.top <= expectedStickyTop + 12 &&
-          rect.bottom > expectedStickyTop + 20
-        ) {
-          highestStickyIndex = i;
+        if (rect.top <= expectedStickyTop + 12 && rect.bottom > expectedStickyTop) {
+          activeIdx = i;
+          break;
         }
-      });
+      }
 
-      setActiveStackIndex(highestStickyIndex);
+      setActiveStackIndex(activeIdx);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
