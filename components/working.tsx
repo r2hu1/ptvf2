@@ -20,7 +20,7 @@ interface RoleDetails {
 const experienceData: RoleDetails[] = [
   {
     company: "RosterPro",
-    title: "Founding Engineer & Co-Founder",
+    title: "Founding Engineer",
     location: "India, Mumbai",
     type: "On-site",
     period: "May 2026 – Present",
@@ -82,7 +82,7 @@ export default function WorkingExperience() {
   };
 
   return (
-    <section id="experience" className="p-6 sm:p-8 bg-background">
+    <section id="experience" className="p-6 sm:p-8 py-0! bg-background">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -91,7 +91,9 @@ export default function WorkingExperience() {
         className="space-y-6"
       >
         <div>
-          <h2 className="text-sm text-foreground tracking-wider">Experience</h2>
+          <h2 className="text-sm text-foreground font-medium tracking-wider">
+            Experience
+          </h2>
           <p className="text-xs text-foreground/60 mt-1">
             Professional timeline and work achievements
           </p>
@@ -105,7 +107,6 @@ export default function WorkingExperience() {
                 key={`${role.company}-${role.period}`}
                 className="relative group"
               >
-
                 <div
                   className={`absolute -left-[30px] top-1.5 size-3.5 rounded-full border border-foreground/10 bg-background transition-all duration-300 flex items-center justify-center ${
                     isExpanded

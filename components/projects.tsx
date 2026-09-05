@@ -40,7 +40,7 @@ export function Projects() {
   }, []);
 
   return (
-    <section id="projects" className="p-6 sm:p-8 bg-background">
+    <section id="projects" className="p-6 sm:p-8 bg-background py-0!">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -50,22 +50,19 @@ export function Projects() {
       >
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
-            <h2 className="text-sm text-foreground tracking-wider">Projects</h2>
+            <h2 className="text-sm font-medium text-foreground tracking-wider">
+              Projects
+            </h2>
             <p className="text-xs text-foreground/60 mt-1">
               My projects, feeding live from git pin.
             </p>
           </div>
 
           <div className="flex items-center gap-0.5 rounded-full w-fit">
-            <Button
-              size="sm"
-              variant="secondary"
-              className="h-6 text-sm px-2 font-normal cursor-pointer border"
-              asChild
-            >
+            <Button size="xs" variant="secondary" asChild className="h-7">
               <Link href={siteConfig.links.github} target="_blank">
                 View All
-                <ExternalLink className="size-3" />
+                <ExternalLink />
               </Link>
             </Button>
           </div>

@@ -43,7 +43,7 @@ export function Header() {
       initial={{ opacity: 0 }}
       animate={done ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="p-6 sm:p-8 bg-background"
+      className="p-6 sm:p-8 py-0! bg-background"
     >
       <div className="flex gap-4 flex-wrap items-center justify-between">
         <div className="flex items-center gap-4">

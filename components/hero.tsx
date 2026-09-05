@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Copy, Check } from "lucide-react";
 import Link from "next/link";
 import { Button } from "./ui/button";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { HeatmapCalendar } from "./heatmap-calendar";
 import { HoverText, Underline } from "./underline";
 import { toast } from "sonner";
@@ -31,15 +31,31 @@ export function Hero() {
     fetchData();
   }, []);
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (data.length > 0) {
+      requestAnimationFrame(() => {
+        const viewport = scrollRef.current?.querySelector(
+          "[data-radix-scroll-area-viewport]",
+        ) as HTMLElement | null;
+
+        if (viewport) {
+          viewport.scrollLeft = viewport.scrollWidth;
+        }
+      });
+    }
+  }, [data]);
+
   return (
     <motion.section
       id="about"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-      className="p-6 sm:p-8 -mt-4 bg-background"
+      className="p-6 sm:p-8 -mt-5 py-0! pb-0 bg-background"
     >
-      <div className="space-y-6">
+      <div className="space-y-3">
         <p className="text-[14.5px] text-foreground/70 leading-relaxed font-normal">
           I&apos;m a software engineer who enjoys building things. I&apos;ve
           worked with{" "}
@@ -64,7 +80,7 @@ export function Hero() {
           project or contributing to projects I use myself.
         </p>
 
-        <div className="flex flex-wrap items-center gap-3 pt-2">
+        <div className="flex flex-wrap items-center gap-3 py-2!">
           <Button variant="default" asChild>
             <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
               View Resume <ArrowUpRight className="size-3.5" />
@@ -88,7 +104,7 @@ export function Hero() {
           </Button>
         </div>
 
-        <ScrollArea className="py-4 -mb-6">
+        <ScrollArea ref={scrollRef} className="py-4 -mb-6">
           <Link
             href="https://github.com/r2hu1"
             target="_blank"
@@ -98,6 +114,7 @@ export function Hero() {
               <HeatmapCalendar className="-ml-10!" legend={false} data={data} />
             )}
           </Link>
+
           <ScrollBar orientation="horizontal" />
         </ScrollArea>
       </div>

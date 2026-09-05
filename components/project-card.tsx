@@ -26,7 +26,7 @@ export function ProjectCard({ project }: { project: ProjectType }) {
         [&:last-child]:border-b-0"
     >
       <div className="flex items-center justify-between">
-        <h3 className="text-sm font-medium">{project.name}</h3>
+        <h3 className="text-sm font-medium capitalize">{project.name}</h3>
 
         <ArrowUpRight className="size-3.5 text-foreground/30 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-foreground" />
       </div>
